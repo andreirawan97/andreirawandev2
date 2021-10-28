@@ -27,17 +27,17 @@ export default function VerticalTimeline(props: Props) {
                   notSameWithPrevOrganization
                     ? {
                         backgroundColor: "#5158bb",
-                        width: 24,
-                        height: 24,
-                        borderRadius: 24,
+                        width: 18,
+                        height: 18,
+                        borderRadius: 18,
                       }
                     : {
                         backgroundColor: "#cbcdeb",
                         width: 12,
                         height: 12,
                         borderRadius: 12,
-                        marginLeft: 6,
-                        marginRight: 6,
+                        marginLeft: 3,
+                        marginRight: 3,
                       }
                 }
               />

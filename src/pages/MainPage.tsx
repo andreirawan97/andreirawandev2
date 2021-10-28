@@ -19,16 +19,27 @@ import {
 } from "../assets";
 
 export default function MainPage() {
+  const testScrollTo = () => {
+    document.getElementById("myProjects")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div>
       <div className="flex flex-row content-container">
-        <p className="font-bold">andreirawan.dev</p>
+        <button onClick={testScrollTo} className="font-bold">
+          andreirawan.dev
+        </button>
       </div>
 
       <StickyContainer className="mb-6">
         <Sticky>
           {({ style }) => (
-            <div style={{ ...style, backgroundColor: "white", zIndex: 1 }}>
+            <div
+              id="aboutMe"
+              style={{ ...style, backgroundColor: "white", zIndex: 1 }}
+            >
               <SectionHeader title="About me" />
             </div>
           )}
@@ -75,7 +86,7 @@ export default function MainPage() {
               </div>
             </div>
             <div className="flex flex-1 justify-center lg:justify-end">
-              <img className="max-w-lg h-auto" src={ImageAndre} alt="" />
+              <img style={{ width: "80%" }} src={ImageAndre} alt="" />
             </div>
           </div>
         </div>
@@ -84,7 +95,7 @@ export default function MainPage() {
       <StickyContainer>
         <Sticky>
           {({ style }) => (
-            <div style={{ ...style, backgroundColor: "white" }}>
+            <div id="myStory" style={{ ...style, backgroundColor: "white" }}>
               <SectionHeader title="My story" />
             </div>
           )}
@@ -96,6 +107,7 @@ export default function MainPage() {
         >
           <h3 className="mt-3 mb-6">
             My most recent <span className="text-primary">education</span>
+            {" 🎓"}
           </h3>
 
           <div className="flex lg:flex-row flex-col mt-3">
@@ -129,16 +141,17 @@ export default function MainPage() {
 
           <h3 className="mt-9 mb-6">
             My <span className="text-primary">achievements</span>
+            {" 🏆"}
           </h3>
 
           <div className="flex lg:flex-row flex-col">
-            <div className="flex-1 justify-center items-center pr-3 pb-6">
+            <div className="flex-1 justify-center items-center lg:pr-3 pb-6">
               <img className="rounded-xl" src={ImageCSIC} alt="" />
             </div>
-            <div className="flex-1 justify-center px-3 pb-6">
+            <div className="flex-1 justify-center lg:px-3 pb-6">
               <img className="rounded-xl" src={ImageIFRA} alt="" />
             </div>
-            <div className="flex-1 justify-center pl-3 pb-6">
+            <div className="flex-1 justify-center lg:pl-3 pb-6">
               <img className="rounded-xl" src={ImageConmedia} alt="" />
             </div>
           </div>
@@ -148,7 +161,10 @@ export default function MainPage() {
       <StickyContainer className="mb-6">
         <Sticky>
           {({ style }) => (
-            <div style={{ ...style, backgroundColor: "white", zIndex: 1 }}>
+            <div
+              id="myProjects"
+              style={{ ...style, backgroundColor: "white", zIndex: 1 }}
+            >
               <SectionHeader title="My projects" />
             </div>
           )}
@@ -157,6 +173,7 @@ export default function MainPage() {
         <div className="content-container">
           <h3 className="mt-3 mb-6">
             My <span className="text-primary">personal projects</span>
+            {" 🧑‍🔬"}
           </h3>
 
           {personalProjects.map((data, i) => (
@@ -165,6 +182,7 @@ export default function MainPage() {
 
           <h3 className="mt-9 mb-6">
             My <span className="text-primary">works</span>
+            {" 🏢"}
           </h3>
 
           <VerticalTimeline data={works} />

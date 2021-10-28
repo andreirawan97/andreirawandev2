@@ -1,9 +1,22 @@
 import { SocialIcon } from "react-social-icons";
 import { StickyContainer, Sticky } from "react-sticky";
-import { ImageAndre, ImageUMN, LogoTraveloka } from "../assets";
 
-import { SectionHeader } from "../components";
+import {
+  PersonalProjectList,
+  SectionHeader,
+  VerticalTimeline,
+} from "../components";
 import { organizationExperiences } from "../data/organizationExperiences";
+import { personalProjects, works } from "../data/projects";
+
+import {
+  ImageAndre,
+  ImageConmedia,
+  ImageCSIC,
+  ImageIFRA,
+  ImageUMN,
+  LogoTraveloka,
+} from "../assets";
 
 export default function MainPage() {
   return (
@@ -79,20 +92,20 @@ export default function MainPage() {
 
         <div
           className="content-container"
-          style={{ backgroundColor: "#f9fbfc" }}
+          style={{ backgroundColor: "#f2f4f6" }}
         >
           <h3 className="mt-3 mb-6">
             My most recent <span className="text-primary">education</span>
           </h3>
 
           <div className="flex lg:flex-row flex-col mt-3">
-            <div className="flex flex-1 justify-center lg:justify-start">
+            <div className="flex flex-1 justify-center lg:justify-start lg:pr-12">
               <img
                 className="rounded-xl"
                 src={ImageUMN}
                 alt=""
                 style={{
-                  width: "80%",
+                  width: "100%",
                   height: "auto",
                 }}
               />
@@ -107,8 +120,8 @@ export default function MainPage() {
               </p>
 
               <ul>
-                {organizationExperiences.map((experience) => (
-                  <li>{experience}</li>
+                {organizationExperiences.map((experience, i) => (
+                  <li key={i}>{experience}</li>
                 ))}
               </ul>
             </div>
@@ -119,14 +132,70 @@ export default function MainPage() {
           </h3>
 
           <div className="flex lg:flex-row flex-col">
-            <div className="flex-1 justify-center">
-              <p>aa</p>
+            <div className="flex-1 justify-center items-center pr-3 pb-6">
+              <img className="rounded-xl" src={ImageCSIC} alt="" />
             </div>
-            <div className="flex-1 justify-center">b</div>
-            <div className="flex-1 justify-center">c</div>
+            <div className="flex-1 justify-center px-3 pb-6">
+              <img className="rounded-xl" src={ImageIFRA} alt="" />
+            </div>
+            <div className="flex-1 justify-center pl-3 pb-6">
+              <img className="rounded-xl" src={ImageConmedia} alt="" />
+            </div>
           </div>
         </div>
       </StickyContainer>
+
+      <StickyContainer className="mb-6">
+        <Sticky>
+          {({ style }) => (
+            <div style={{ ...style, backgroundColor: "white", zIndex: 1 }}>
+              <SectionHeader title="My projects" />
+            </div>
+          )}
+        </Sticky>
+
+        <div className="content-container">
+          <h3 className="mt-3 mb-6">
+            My <span className="text-primary">personal projects</span>
+          </h3>
+
+          {personalProjects.map((data, i) => (
+            <PersonalProjectList key={i} data={data} />
+          ))}
+
+          <h3 className="mt-9 mb-6">
+            My <span className="text-primary">works</span>
+          </h3>
+
+          <VerticalTimeline data={works} />
+        </div>
+      </StickyContainer>
+
+      {/* <StickyContainer className="mb-6">
+        <Sticky>
+          {({ style }) => (
+            <div style={{ ...style, backgroundColor: "white", zIndex: 1 }}>
+              <SectionHeader title="My expertise" />
+            </div>
+          )}
+        </Sticky>
+
+        <div className="content-container">
+          <h3 className="mt-3 mb-6">
+            My <span className="text-primary">skills</span>
+          </h3>
+          {skills.map((skill) => (
+            <div className="flex flex-row items-center">
+              <div className="flex-1 pr-1">
+                <p className="font-bold text-lg text-right">{skill.name}</p>
+              </div>
+              <div className="flex-1 pl-1">
+                <Rating rating={skill.rating} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </StickyContainer> */}
     </div>
   );
 }

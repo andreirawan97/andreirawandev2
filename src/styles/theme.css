@@ -1,0 +1,15 @@
+.text-primary {
+  color: #5158bb;
+}
+
+.bg-primary {
+  background-color: #5158bb;
+}
+
+.bg-primary-shade {
+  background-color: #cbcdeb;
+}
+
+.content-container {
+  @apply md:px-24 px-6 py-3;
+}

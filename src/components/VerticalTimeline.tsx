@@ -64,6 +64,13 @@ export default function VerticalTimeline(props: Props) {
               >
                 {item.title}
               </p>
+              {item.image && (
+                <img
+                  className="sm:max-w-xs h-auto my-3 rounded"
+                  src={item.image}
+                  alt=""
+                />
+              )}
               <span>📅 {item.date}</span>
               <span>{item.description}</span>
             </div>

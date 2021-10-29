@@ -1,5 +1,13 @@
 import { TimelineData } from "../components/VerticalTimeline";
 
+import {
+  ImageAVPN,
+  ImageDBO,
+  ImageInsights,
+  ImagePruhub,
+  ImageVisionUI,
+} from "../assets";
+
 export type PersonalProject = {
   name: string;
   description: string;
@@ -39,6 +47,7 @@ export const works: Array<TimelineData> = [
     description:
       "AVPN is a conference app that helps attendance to view venue, chat with speaker, and see schedules",
     date: "April 2019 - July 2019",
+    image: ImageAVPN,
   },
   {
     title: "Vision-UI",
@@ -46,6 +55,7 @@ export const works: Array<TimelineData> = [
     description:
       "Vision-UI is a framework for rendering mobile apps using JSON.",
     date: "July 2019 - October 2019",
+    image: ImageVisionUI,
   },
   {
     title: "Insights",
@@ -53,12 +63,14 @@ export const works: Array<TimelineData> = [
     description:
       "Insights is a web app that helps Project Manager to track project and helps Client to see their app status and progress.",
     date: "October 2019 - December 2019",
+    image: ImageInsights,
   },
   {
     title: "PruHub",
     organizationName: "KodeFox, Inc",
     description: "Developing Prudential internal application using Vision-UI.",
     date: "January 2020 - August 2020",
+    image: ImagePruhub,
   },
   {
     title: "DBO",
@@ -66,9 +78,10 @@ export const works: Array<TimelineData> = [
     description:
       "DBO or Depo Bangunan Online is an app to help business owner to procure stuffs.",
     date: "February 2021 - September 2021",
+    image: ImageDBO,
   },
   {
-    title: "Corporate Technology",
+    title: "Corporate Technology Apps",
     organizationName: "Traveloka",
     description: "Working on various Corporate Technology applications.",
     date: "September 2021 - Present",

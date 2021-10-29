@@ -25,6 +25,10 @@ export default function MainPage() {
     });
   };
 
+  const openLink = (url: string) => {
+    window.open(url);
+  };
+
   return (
     <div>
       <div className="flex flex-row content-container">
@@ -145,14 +149,67 @@ export default function MainPage() {
           </h3>
 
           <div className="flex lg:flex-row flex-col">
-            <div className="flex-1 justify-center items-center lg:pr-3 pb-6">
-              <img className="rounded-xl" src={ImageCSIC} alt="" />
+            <div className="flex-1 justify-center lg:pr-3 pb-6">
+              <div className="flex flex-col rounded-xl bg-white shadow">
+                <img className="rounded-xl mb-3" src={ImageCSIC} alt="" />
+                <div className="flex flex-col px-3 pb-3">
+                  <span className="mb-3">
+                    1st Place in Computer Science Innovation Challenge (CSIC)
+                    2017
+                  </span>
+                  <button
+                    className="text-primary font-bold"
+                    onClick={() =>
+                      openLink(
+                        "https://ultimagz.com/berita-kampus/infinite-loop-usung-inovasi-bernama-emergency-di-csic/"
+                      )
+                    }
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="flex-1 justify-center lg:px-3 pb-6">
-              <img className="rounded-xl" src={ImageIFRA} alt="" />
+              <div className="flex flex-col rounded-xl bg-white shadow">
+                <img className="rounded-xl mb-3" src={ImageIFRA} alt="" />
+                <div className="flex flex-col px-3 pb-3">
+                  <span className="mb-3">
+                    1st Place in IFRAPreneur Business Concept Competition
+                    (IFBCC) 2018
+                  </span>
+                  <button
+                    className="text-primary font-bold"
+                    onClick={() =>
+                      openLink(
+                        "https://www.tribunnews.com/bisnis/2018/07/22/ifra-2018-semangat-entrepreneurship-usia-muda-mulai-tumbuh"
+                      )
+                    }
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="flex-1 justify-center lg:pl-3 pb-6">
-              <img className="rounded-xl" src={ImageConmedia} alt="" />
+              <div className="flex flex-col rounded-xl bg-white shadow">
+                <img className="rounded-xl mb-3" src={ImageConmedia} alt="" />
+                <div className="flex flex-col px-3 pb-3">
+                  <span className="mb-3">
+                    Presenter in CONMEDIA ICON-SONICS 2021
+                  </span>
+                  <button
+                    className="text-primary font-bold"
+                    onClick={() =>
+                      openLink(
+                        "https://www.detik.com/edu/perguruan-tinggi/d-5767417/gelar-konferensi-internasional-umn-angkat-isu-teknologi--pembangunan"
+                      )
+                    }
+                  >
+                    Read more
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

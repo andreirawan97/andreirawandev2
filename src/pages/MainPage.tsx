@@ -19,8 +19,8 @@ import {
 } from "../assets";
 
 export default function MainPage() {
-  const testScrollTo = () => {
-    document.getElementById("myProjects")?.scrollIntoView({
+  const scrollTo = (elementId: string) => {
+    document.getElementById(elementId)?.scrollIntoView({
       behavior: "smooth",
     });
   };
@@ -32,9 +32,7 @@ export default function MainPage() {
   return (
     <div>
       <div className="flex flex-row content-container">
-        <button onClick={testScrollTo} className="font-bold">
-          andreirawan.dev
-        </button>
+        <button className="font-bold">andreirawan.dev</button>
       </div>
 
       <StickyContainer className="mb-6">
@@ -72,6 +70,13 @@ export default function MainPage() {
                 implementation, this thanks to the experience in development
                 acquired in all these years.
               </p>
+
+              <button
+                className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6"
+                onClick={() => scrollTo("myProjects")}
+              >
+                {`See my projects -->`}
+              </button>
 
               <div className="flex flex-row items-center">
                 <SocialIcon

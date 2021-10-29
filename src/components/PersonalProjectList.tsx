@@ -40,7 +40,7 @@ export default function PersonalProjectList(props: Props) {
           </span>
         </div>
       </div>
-      <div className="h-auto w-1 bg-primary-shade rounded" />
+      {/* <div className="h-auto w-1 bg-primary-shade rounded" /> */}
     </div>
   );
 }

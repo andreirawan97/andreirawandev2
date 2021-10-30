@@ -16,7 +16,7 @@ code {
     monospace;
 }
 
-ul li::before {
+ul.dotted-list li::before {
   content: "\2022";
   color: #5158bb;
   font-weight: bold;

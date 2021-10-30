@@ -79,6 +79,7 @@ export const works: Array<TimelineData> = [
       "DBO or Depo Bangunan Online is an app to help business owner to procure stuffs.",
     date: "February 2021 - September 2021",
     image: ImageDBO,
+    link: "https://play.google.com/store/apps/details?id=com.dbo.newdboindonesiahd&hl=en&gl=US",
   },
   {
     title: "Corporate Technology Apps",

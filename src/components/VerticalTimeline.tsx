@@ -1,3 +1,5 @@
+import { openLink } from "../helpers/util";
+
 export type TimelineData = {
   title: string;
   organizationName: string;
@@ -5,6 +7,7 @@ export type TimelineData = {
   date: string;
   organizationLogo?: string;
   image?: string;
+  link?: string;
 };
 
 type Props = {
@@ -73,6 +76,16 @@ export default function VerticalTimeline(props: Props) {
               )}
               <span>📅 {item.date}</span>
               <span>{item.description}</span>
+              <div>
+                {item.link && (
+                  <button
+                    className="text-primary"
+                    onClick={() => openLink(item.link ?? "")}
+                  >
+                    View more
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         );

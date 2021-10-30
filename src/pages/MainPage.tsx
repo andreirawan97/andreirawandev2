@@ -1,7 +1,9 @@
 import { SocialIcon } from "react-social-icons";
 import { StickyContainer, Sticky } from "react-sticky";
+import { useState } from "react";
 
 import {
+  Modal,
   PersonalProjectList,
   SectionHeader,
   VerticalTimeline,
@@ -17,16 +19,23 @@ import {
   ImageUMN,
   LogoTraveloka,
 } from "../assets";
+import { openLink } from "../helpers/util";
 
 export default function MainPage() {
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   const scrollTo = (elementId: string) => {
     document.getElementById(elementId)?.scrollIntoView({
       behavior: "smooth",
     });
-  };
-
-  const openLink = (url: string) => {
-    window.open(url);
   };
 
   return (
@@ -72,6 +81,13 @@ export default function MainPage() {
               </p>
 
               <button
+                onClick={openModal}
+                className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6 mr-3"
+              >
+                {`Download my resume 📝`}
+              </button>
+
+              <button
                 className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6"
                 onClick={() => scrollTo("myProjects")}
               >
@@ -87,10 +103,17 @@ export default function MainPage() {
                   url="https://www.linkedin.com/in/andre-irawan-baa512168/"
                 />
                 <SocialIcon
+                  className="mr-3"
                   style={{
                     zIndex: 0,
                   }}
                   url="mailto: andreirawan97@gmail.com"
+                />
+                <SocialIcon
+                  style={{
+                    zIndex: 0,
+                  }}
+                  url="https://www.github.com/andreirawan97"
                 />
               </div>
             </div>
@@ -140,7 +163,7 @@ export default function MainPage() {
                 and have many experience in organizations.
               </p>
 
-              <ul>
+              <ul className="dotted-list">
                 {organizationExperiences.map((experience, i) => (
                   <li key={i}>{experience}</li>
                 ))}
@@ -250,6 +273,13 @@ export default function MainPage() {
           <VerticalTimeline data={works} />
         </div>
       </StickyContainer>
+
+      <Modal
+        title="Oops"
+        description="Sorry, this feature is not available yet :("
+        show={isOpen}
+        onCloseModal={closeModal}
+      />
 
       {/* <StickyContainer className="mb-6">
         <Sticky>

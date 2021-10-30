@@ -64,6 +64,7 @@ export const works: Array<TimelineData> = [
       "Insights is a web app that helps Project Manager to track project and helps Client to see their app status and progress.",
     date: "October 2019 - December 2019",
     image: ImageInsights,
+    link: "https://insights.kodefox.com/",
   },
   {
     title: "PruHub",

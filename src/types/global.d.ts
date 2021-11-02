@@ -1,1 +1,1 @@
-declare module "social-media-icons-react";
+declare module "*.pdf";

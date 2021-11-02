@@ -10,6 +10,8 @@ import ImageInsights from "./image-insights.png";
 import ImagePruhub from "./image-pruhub.png";
 import ImageVisionUI from "./image-visionui.png";
 
+import CV from "./cv.pdf";
+
 export {
   LogoTraveloka,
   ImageAndre,
@@ -22,4 +24,5 @@ export {
   ImageInsights,
   ImagePruhub,
   ImageVisionUI,
+  CV,
 };

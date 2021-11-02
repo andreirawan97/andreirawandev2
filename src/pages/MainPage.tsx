@@ -12,6 +12,7 @@ import { organizationExperiences } from "../data/organizationExperiences";
 import { personalProjects, works } from "../data/projects";
 
 import {
+  CV,
   ImageAndre,
   ImageConmedia,
   ImageCSIC,
@@ -19,24 +20,18 @@ import {
   ImageUMN,
   LogoTraveloka,
 } from "../assets";
-import { openLink } from "../helpers/util";
+import { openLink, scrollTo } from "../helpers/util";
 
 export default function MainPage() {
-  let [isOpen, setIsOpen] = useState(false);
+  let [isModalOpen, setModalOpen] = useState(false);
 
   function closeModal() {
-    setIsOpen(false);
+    setModalOpen(false);
   }
 
   function openModal() {
-    setIsOpen(true);
+    setModalOpen(true);
   }
-
-  const scrollTo = (elementId: string) => {
-    document.getElementById(elementId)?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
 
   return (
     <div>
@@ -81,7 +76,9 @@ export default function MainPage() {
               </p>
 
               <button
-                onClick={openModal}
+                onClick={() => {
+                  window.open(CV);
+                }}
                 className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6 mr-3"
               >
                 {`Download my resume 📝`}
@@ -277,7 +274,7 @@ export default function MainPage() {
       <Modal
         title="Oops"
         description="Sorry, this feature is not available yet :("
-        show={isOpen}
+        show={isModalOpen}
         onCloseModal={closeModal}
       />
 

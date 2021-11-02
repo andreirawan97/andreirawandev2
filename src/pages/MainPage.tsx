@@ -34,9 +34,11 @@ export default function MainPage() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="flex flex-row content-container">
-        <button className="font-bold">andreirawan.dev</button>
+        <button className="font-bold" onClick={openModal}>
+          andreirawan.dev
+        </button>
       </div>
 
       <StickyContainer className="mb-6">
@@ -240,7 +242,7 @@ export default function MainPage() {
         </div>
       </StickyContainer>
 
-      <StickyContainer className="mb-6">
+      <StickyContainer className="mb-3">
         <Sticky>
           {({ style }) => (
             <div
@@ -271,9 +273,19 @@ export default function MainPage() {
         </div>
       </StickyContainer>
 
+      <div
+        style={{
+          width: 12,
+          height: 12,
+          borderRadius: 12,
+          backgroundColor: "grey",
+          alignSelf: "center",
+        }}
+      />
+
       <Modal
         title="Oops"
-        description="Sorry, this feature is not available yet :("
+        description="Did i forgot to change it? 🤔"
         show={isModalOpen}
         onCloseModal={closeModal}
       />

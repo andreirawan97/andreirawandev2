@@ -274,11 +274,11 @@ export default function MainPage() {
       </StickyContainer>
 
       <div
+        className="bg-primary mb-6"
         style={{
-          width: 12,
-          height: 12,
-          borderRadius: 12,
-          backgroundColor: "grey",
+          width: 8,
+          height: 8,
+          borderRadius: 8,
           alignSelf: "center",
         }}
       />

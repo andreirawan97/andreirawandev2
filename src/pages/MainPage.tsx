@@ -1,6 +1,7 @@
 import { SocialIcon } from "react-social-icons";
 import { StickyContainer, Sticky } from "react-sticky";
 import { useState } from "react";
+import Wave from "react-wavify";
 
 import {
   Modal,
@@ -35,13 +36,20 @@ export default function MainPage() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row content-container">
+      <div className="flex flex-row content-container justify-between">
         <button className="font-bold" onClick={openModal}>
           andreirawan.dev
         </button>
+
+        <button
+          className="font-bold text-gray-500"
+          onClick={() => openLink("http://andreirawan.netlify.app/")}
+        >
+          See v.1.0
+        </button>
       </div>
 
-      <StickyContainer className="mb-6">
+      <StickyContainer>
         <Sticky>
           {({ style }) => (
             <div
@@ -116,11 +124,32 @@ export default function MainPage() {
                 />
               </div>
             </div>
-            <div className="flex flex-1 justify-center lg:justify-end">
-              <img style={{ width: "80%" }} src={ImageAndre} alt="" />
+            <div
+              className="flex flex-1 justify-center lg:justify-end"
+              style={{
+                maxHeight: 450,
+              }}
+            >
+              <img
+                style={{
+                  objectFit: "contain",
+                }}
+                src={ImageAndre}
+                alt=""
+              />
             </div>
           </div>
         </div>
+        <Wave
+          fill="#5158bb"
+          paused={false}
+          options={{
+            height: 25,
+            amplitude: 15,
+            speed: 0.25,
+            points: 3,
+          }}
+        />
       </StickyContainer>
 
       <StickyContainer>

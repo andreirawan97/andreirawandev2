@@ -1,3 +1,5 @@
+import Fade from "react-reveal/Fade";
+
 import { PersonalProject } from "../data/projects";
 
 type Props = {
@@ -17,30 +19,32 @@ export default function PersonalProjectList(props: Props) {
   };
 
   return (
-    <div className="flex flex-row flex-1 mb-3">
-      <div className="h-auto w-1 bg-primary-shade rounded" />
-      <div className="flex flex-1 flex-col p-3">
-        <p className="font-bold">{name}</p>
-        <span>{description}</span>
-        <span>Used technologies: {usedTechnologies}</span>
-        <div className="flex flex-row">
-          {projectLink && (
+    <Fade left>
+      <div className="flex flex-row flex-1 mb-3">
+        <div className="h-auto w-1 bg-primary-shade rounded" />
+        <div className="flex flex-1 flex-col p-3">
+          <p className="font-bold">{name}</p>
+          <span>{description}</span>
+          <span>Used technologies: {usedTechnologies}</span>
+          <div className="flex flex-row">
+            {projectLink && (
+              <span
+                onClick={onClickProjectLink}
+                className="text-primary font-bold mr-2 cursor-pointer"
+              >
+                Open
+              </span>
+            )}
             <span
-              onClick={onClickProjectLink}
-              className="text-primary font-bold mr-2 cursor-pointer"
+              onClick={onClickGithubLink}
+              className="text-primary cursor-pointer"
             >
-              Open
+              View more
             </span>
-          )}
-          <span
-            onClick={onClickGithubLink}
-            className="text-primary cursor-pointer"
-          >
-            View more
-          </span>
+          </div>
         </div>
+        {/* <div className="h-auto w-1 bg-primary-shade rounded" /> */}
       </div>
-      {/* <div className="h-auto w-1 bg-primary-shade rounded" /> */}
-    </div>
+    </Fade>
   );
 }

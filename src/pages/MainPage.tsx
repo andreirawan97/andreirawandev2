@@ -128,22 +128,20 @@ export default function MainPage() {
               </div>
             </Fade>
 
-            <Fade right>
-              <div
-                className="flex flex-1 justify-center lg:justify-end"
+            <div
+              className="flex flex-1 justify-center lg:justify-end"
+              style={{
+                maxHeight: 450,
+              }}
+            >
+              <img
                 style={{
-                  maxHeight: 450,
+                  objectFit: "contain",
                 }}
-              >
-                <img
-                  style={{
-                    objectFit: "contain",
-                  }}
-                  src={ImageAndre}
-                  alt=""
-                />
-              </div>
-            </Fade>
+                src={ImageAndre}
+                alt=""
+              />
+            </div>
           </div>
         </div>
         <Wave
@@ -289,7 +287,7 @@ export default function MainPage() {
           )}
         </Sticky>
 
-        <div className="content-container" style={{ zIndex: 0 }}>
+        <div className="content-container">
           <h3 className="mt-3 mb-6">
             My <span className="text-primary">personal projects</span>
             {" 🧑‍🔬"}

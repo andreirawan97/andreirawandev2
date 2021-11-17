@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 type Props = {
@@ -6,10 +6,17 @@ type Props = {
   title?: string;
   description?: string;
   onCloseModal?: () => void;
+  renderContent?: () => ReactNode;
 };
 
 export default function Modal(props: Props) {
-  const { show, onCloseModal = () => {}, title, description } = props;
+  const {
+    show,
+    onCloseModal = () => {},
+    title,
+    description,
+    renderContent,
+  } = props;
 
   return (
     <Transition appear show={show} as={Fragment}>
@@ -53,7 +60,7 @@ export default function Modal(props: Props) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-sm p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"
@@ -62,6 +69,7 @@ export default function Modal(props: Props) {
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">{description}</p>
+                  {renderContent && renderContent()}
                 </div>
 
                 <div className="flex flex-1 mt-4 justify-end">

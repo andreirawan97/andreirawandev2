@@ -317,10 +317,20 @@ export default function MainPage() {
       />
 
       <Modal
-        title="Oops"
-        description="Did i forgot to change it? 🤔"
+        title="About this web"
         show={isModalOpen}
         onCloseModal={closeModal}
+        renderContent={() => (
+          <div>
+            <span>
+              This web is forged 🛠️ by:{" "}
+              <span className="font-bold">
+                Typescript, React, Tailwind, Headlessui
+              </span>{" "}
+              with additions of react-reveal, react-sticky, and react-wavify
+            </span>
+          </div>
+        )}
       />
 
       {/* <StickyContainer className="mb-6">

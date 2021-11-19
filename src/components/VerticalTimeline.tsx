@@ -51,7 +51,7 @@ export default function VerticalTimeline(props: Props) {
               )}
             </div>
 
-            <Fade right>
+            <Fade>
               <div className="flex flex-col ml-3 pb-4">
                 {notSameWithPrevOrganization && (
                   <div className="flex">

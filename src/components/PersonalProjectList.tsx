@@ -19,7 +19,7 @@ export default function PersonalProjectList(props: Props) {
   };
 
   return (
-    <Fade left>
+    <Fade>
       <div className="flex flex-row flex-1 mb-3">
         <div className="h-auto w-1 bg-primary-shade rounded" />
         <div className="flex flex-1 flex-col p-3">

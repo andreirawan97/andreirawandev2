@@ -1,6 +1,6 @@
 import Fade from "react-reveal/Fade";
 
-import { openLink } from "../helpers/util";
+import { openLink } from "../../../helpers/util";
 
 export type TimelineData = {
   title: string;

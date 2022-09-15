@@ -1,4 +1,4 @@
-import { TimelineData } from "../components/VerticalTimeline";
+import { TimelineData } from "../features/MainPage/components/VerticalTimeline";
 
 import {
   ImageAVPN,

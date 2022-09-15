@@ -1,5 +1,5 @@
 import LogoTraveloka from "./logo-traveloka.png";
-import ImageAndre from "./image-andre.png";
+import ImageAndre from "./image-andre.webp";
 import ImageUMN from "./image-umn.png";
 import ImageIFRA from "./image-ifra.jpg";
 import ImageCSIC from "./image-csic.jpeg";

@@ -5,13 +5,14 @@ import Wave from "react-wavify";
 import Fade from "react-reveal/Fade";
 
 import {
-  Modal,
   PersonalProjectList,
   SectionHeader,
   VerticalTimeline,
-} from "../components";
+} from "../features/MainPage/components";
 import { organizationExperiences } from "../data/organizationExperiences";
 import { personalProjects, works } from "../data/projects";
+import { openLink, scrollTo } from "../helpers/util";
+import { Modal } from "../components";
 
 import {
   CV,
@@ -22,7 +23,6 @@ import {
   ImageUMN,
   LogoTraveloka,
 } from "../assets";
-import { openLink, scrollTo } from "../helpers/util";
 
 export default function MainPage() {
   let [isModalOpen, setModalOpen] = useState(false);

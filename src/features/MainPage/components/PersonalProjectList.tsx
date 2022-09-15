@@ -1,6 +1,6 @@
 import Fade from "react-reveal/Fade";
 
-import { PersonalProject } from "../data/projects";
+import { PersonalProject } from "../../../data/projects";
 
 type Props = {
   data: PersonalProject;

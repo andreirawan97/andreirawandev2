@@ -1,6 +1,6 @@
 import { SocialIcon } from "react-social-icons";
 import { StickyContainer, Sticky } from "react-sticky";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Wave from "react-wavify";
 import Fade from "react-reveal/Fade";
 
@@ -23,17 +23,38 @@ import {
   ImageUMN,
   LogoTraveloka,
 } from "../assets";
+import Typed, { TypedOptions } from "typed.js";
 
 export default function MainPage() {
+  const typedRef = useRef(null);
+  const typedElement = useRef(null);
+
   let [isModalOpen, setModalOpen] = useState(false);
 
-  function closeModal() {
+  const closeModal = () => {
     setModalOpen(false);
-  }
+  };
 
-  function openModal() {
+  const openModal = () => {
     setModalOpen(true);
-  }
+  };
+
+  useEffect(() => {
+    const options: TypedOptions = {
+      strings: ["Hello", "Halo", "Bonjour", "안녕", "你好"],
+      typeSpeed: 100,
+      backSpeed: 100,
+      loop: true,
+    };
+
+    // @ts-ignore
+    typedRef.current = new Typed(typedElement.current, options);
+
+    return () => {
+      // @ts-ignore
+      typedRef.current.destroy();
+    };
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -66,7 +87,9 @@ export default function MainPage() {
           <div className="flex lg:flex-row flex-col mt-3">
             <Fade left>
               <div className="flex-1">
-                <h1 className="mb-3">Hello 👋,</h1>
+                <h1 className="mb-3 flex flex-row">
+                  <span ref={typedElement} /> 👋,
+                </h1>
                 <h1 className="mb-6">
                   I'm <span className="text-primary">Andre Irawan</span>
                 </h1>

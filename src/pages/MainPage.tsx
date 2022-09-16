@@ -3,17 +3,6 @@ import { StickyContainer, Sticky } from "react-sticky";
 import { useEffect, useRef, useState } from "react";
 import Wave from "react-wavify";
 import Fade from "react-reveal/Fade";
-
-import {
-  PersonalProjectList,
-  SectionHeader,
-  VerticalTimeline,
-} from "../features/MainPage/components";
-import { organizationExperiences } from "../data/organizationExperiences";
-import { personalProjects, works } from "../data/projects";
-import { openLink, scrollTo } from "../helpers/util";
-import { Modal } from "../components";
-
 import {
   CV,
   ImageAndre,
@@ -24,7 +13,19 @@ import {
   LogoTraveloka,
 } from "../assets";
 import Typed, { TypedOptions } from "typed.js";
+
+import {
+  PersonalProjectList,
+  SectionHeader,
+  VerticalTimeline,
+} from "../features/MainPage/components";
+import { organizationExperiences } from "../data/organizationExperiences";
+import { personalProjects, works } from "../data/projects";
+import { openLink, scrollTo } from "../helpers/util";
+import { Modal } from "../components";
 import { hello } from "../features/MainPage/constants/hello";
+
+import "./MainPage.css";
 
 export default function MainPage() {
   const typedRef = useRef(null);
@@ -77,7 +78,8 @@ export default function MainPage() {
           {({ style }) => (
             <div
               id="aboutMe"
-              style={{ ...style, backgroundColor: "white", zIndex: 1 }}
+              className="sticky-header-glass"
+              style={{ ...style, zIndex: 1 }}
             >
               <SectionHeader title="About me" />
             </div>
@@ -183,7 +185,11 @@ export default function MainPage() {
       <StickyContainer>
         <Sticky>
           {({ style }) => (
-            <div id="myStory" style={{ ...style, backgroundColor: "white" }}>
+            <div
+              id="myStory"
+              className="sticky-header-glass"
+              style={{ ...style }}
+            >
               <SectionHeader title="My story" />
             </div>
           )}
@@ -304,7 +310,8 @@ export default function MainPage() {
           {({ style }) => (
             <div
               id="myProjects"
-              style={{ ...style, backgroundColor: "white", zIndex: 1 }}
+              className="sticky-header-glass"
+              style={{ ...style, zIndex: 1 }}
             >
               <SectionHeader title="My projects" />
             </div>

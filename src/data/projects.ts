@@ -88,4 +88,4 @@ export const works: Array<TimelineData> = [
     description: "Working on various Corporate Technology applications.",
     date: "September 2021 - Present",
   },
-];
+].reverse();

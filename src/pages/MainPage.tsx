@@ -24,6 +24,7 @@ import {
   LogoTraveloka,
 } from "../assets";
 import Typed, { TypedOptions } from "typed.js";
+import { hello } from "../features/MainPage/constants/hello";
 
 export default function MainPage() {
   const typedRef = useRef(null);
@@ -41,7 +42,7 @@ export default function MainPage() {
 
   useEffect(() => {
     const options: TypedOptions = {
-      strings: ["Hello", "Halo", "Bonjour", "안녕", "你好"],
+      strings: hello,
       typeSpeed: 100,
       backSpeed: 100,
       loop: true,

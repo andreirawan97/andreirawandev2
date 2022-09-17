@@ -358,9 +358,8 @@ export default function MainPage() {
             <span>
               This web is forged 🛠️ by:{" "}
               <span className="font-bold">
-                Typescript, React, Tailwind, Headlessui
-              </span>{" "}
-              with additions of react-reveal, react-sticky, and react-wavify
+                Typescript, React, Tailwind, and Headless UI
+              </span>
             </span>
           </div>
         )}

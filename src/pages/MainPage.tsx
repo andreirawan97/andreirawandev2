@@ -44,7 +44,7 @@ export default function MainPage() {
   useEffect(() => {
     const options: TypedOptions = {
       strings: hello,
-      typeSpeed: 100,
+      typeSpeed: 75,
       backSpeed: 100,
       loop: true,
     };
@@ -60,127 +60,129 @@ export default function MainPage() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row content-container justify-between">
-        <button className="font-bold" onClick={openModal}>
-          andreirawan.dev
-        </button>
+      <div className="flex flex-col md:h-screen h-auto">
+        <div className="flex flex-row md:px-24 px-6 py-3 flex-1 justify-between max-h-16">
+          <button className="font-bold" onClick={openModal}>
+            andreirawan.dev
+          </button>
 
-        <button
-          className="font-bold text-gray-500"
-          onClick={() => openLink("http://andreirawan.netlify.app/")}
-        >
-          See v.1.0
-        </button>
-      </div>
+          <button
+            className="font-bold text-gray-500"
+            onClick={() => openLink("http://andreirawan.netlify.app/")}
+          >
+            See v.1.0
+          </button>
+        </div>
 
-      <StickyContainer>
-        <Sticky>
-          {({ style }) => (
-            <div
-              id="aboutMe"
-              className="sticky-header-glass"
-              style={{ ...style, zIndex: 1 }}
-            >
-              <SectionHeader title="About me" />
-            </div>
-          )}
-        </Sticky>
-
-        <div className="content-container">
-          <div className="flex lg:flex-row flex-col mt-3">
-            <Fade left>
-              <div className="flex-1">
-                <h1 className="mb-3 flex flex-row">
-                  <span ref={typedElement} /> 👋,
-                </h1>
-                <h1 className="mb-6">
-                  I'm <span className="text-primary">Andre Irawan</span>
-                </h1>
-
-                <div className="flex flex-row items-center mb-6">
-                  <h4 className="mr-1">Software Engineer at Traveloka</h4>
-
-                  <img className="w-9 h-9" src={LogoTraveloka} alt="" />
-                </div>
-
-                <p className="mb-6">
-                  I have experiences in creating and designing software. I take
-                  into account both sides of the project, users, and business to
-                  meet the needs of both. Applying analytical thinking, user
-                  research, and evaluation of the best method and solution,
-                  resulting in functional UI designs and 100% sure of its
-                  implementation, this thanks to the experience in development
-                  acquired in all these years.
-                </p>
-
-                <button
-                  onClick={() => {
-                    window.open(CV);
-                  }}
-                  className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6 mr-3"
-                >
-                  {`Download my resume 📝`}
-                </button>
-
-                <button
-                  className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6"
-                  onClick={() => scrollTo("myProjects")}
-                >
-                  {`See my projects -->`}
-                </button>
-
-                <div className="flex flex-row items-center">
-                  <SocialIcon
-                    className="mr-3"
-                    style={{
-                      zIndex: 0,
-                    }}
-                    url="https://www.linkedin.com/in/andre-irawan-baa512168/"
-                  />
-                  <SocialIcon
-                    className="mr-3"
-                    style={{
-                      zIndex: 0,
-                    }}
-                    url="mailto: andreirawan97@gmail.com"
-                  />
-                  <SocialIcon
-                    style={{
-                      zIndex: 0,
-                    }}
-                    url="https://www.github.com/andreirawan97"
-                  />
-                </div>
+        <StickyContainer className="flex flex-1 flex-col">
+          <Sticky>
+            {({ style }) => (
+              <div
+                id="aboutMe"
+                className="sticky-header-glass"
+                style={{ ...style, zIndex: 1 }}
+              >
+                <SectionHeader title="About me" />
               </div>
-            </Fade>
+            )}
+          </Sticky>
 
-            <div
-              className="flex flex-1 justify-center lg:justify-end"
-              style={{
-                maxHeight: 450,
-              }}
-            >
-              <img
+          <div className="content-container">
+            <div className="flex flex-1 lg:flex-row flex-col items-center mb-12">
+              <Fade left>
+                <div className="flex-1">
+                  <h1 className="mb-3 flex flex-row">
+                    <span ref={typedElement} /> 👋,
+                  </h1>
+                  <h1 className="mb-6">
+                    I'm <span className="text-primary">Andre Irawan</span>
+                  </h1>
+
+                  <div className="flex flex-row items-center mb-6">
+                    <h4 className="mr-1">Software Engineer at Traveloka</h4>
+
+                    <img className="w-9 h-9" src={LogoTraveloka} alt="" />
+                  </div>
+
+                  <p className="mb-6">
+                    I have experiences in creating and designing software. I
+                    take into account both sides of the project, users, and
+                    business to meet the needs of both. Applying analytical
+                    thinking, user research, and evaluation of the best method
+                    and solution, resulting in functional UI designs and 100%
+                    sure of its implementation, this thanks to the experience in
+                    development acquired in all these years.
+                  </p>
+
+                  <button
+                    onClick={() => {
+                      window.open(CV);
+                    }}
+                    className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6 mr-3"
+                  >
+                    {`Download my resume 📝`}
+                  </button>
+
+                  <button
+                    className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6"
+                    onClick={() => scrollTo("myProjects")}
+                  >
+                    {`See my projects -->`}
+                  </button>
+
+                  <div className="flex flex-row items-center">
+                    <SocialIcon
+                      className="mr-3"
+                      style={{
+                        zIndex: 0,
+                      }}
+                      url="https://www.linkedin.com/in/andre-irawan-baa512168/"
+                    />
+                    <SocialIcon
+                      className="mr-3"
+                      style={{
+                        zIndex: 0,
+                      }}
+                      url="mailto: andreirawan97@gmail.com"
+                    />
+                    <SocialIcon
+                      style={{
+                        zIndex: 0,
+                      }}
+                      url="https://www.github.com/andreirawan97"
+                    />
+                  </div>
+                </div>
+              </Fade>
+
+              <div
+                className="flex flex-1 justify-center lg:justify-end"
                 style={{
-                  objectFit: "contain",
+                  maxHeight: 450,
                 }}
-                src={ImageAndre}
-                alt=""
-              />
+              >
+                <img
+                  style={{
+                    objectFit: "contain",
+                  }}
+                  src={ImageAndre}
+                  alt=""
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <Wave
-          fill="#5158bb"
-          paused={false}
-          options={{
-            height: 25,
-            amplitude: 15,
-            speed: 0.25,
-            points: 3,
-          }}
-        />
-      </StickyContainer>
+          <Wave
+            fill="#5158bb"
+            paused={false}
+            options={{
+              height: 25,
+              amplitude: 15,
+              speed: 0.25,
+              points: 3,
+            }}
+          />
+        </StickyContainer>
+      </div>
 
       <StickyContainer>
         <Sticky>

@@ -13,7 +13,3 @@
 .border-primary {
   border-color: #5158bb;
 }
-
-.content-container {
-  @apply md:px-24 px-6 py-3;
-}

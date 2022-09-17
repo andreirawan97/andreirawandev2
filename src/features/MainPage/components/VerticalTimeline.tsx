@@ -73,7 +73,7 @@ export default function VerticalTimeline(props: Props) {
                 </p>
                 {item.image && (
                   <img
-                    className="sm:max-w-xs h-auto my-3 rounded"
+                    className="sm:max-w-xs my-3 rounded max-h-36 w-max"
                     src={item.image}
                     alt=""
                   />

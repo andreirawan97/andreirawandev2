@@ -83,6 +83,13 @@ export const works: Array<TimelineData> = [
     link: "https://play.google.com/store/apps/details?id=com.dbo.newdboindonesiahd&hl=en&gl=US",
   },
   {
+    title: "Traveloka Career",
+    organizationName: "Traveloka",
+    description: "Contributed in enhancement for existing career site.",
+    date: "May 2022 - Aug 2022",
+    link: "https://traveloka.com/careers",
+  },
+  {
     title: "Corporate Technology Apps",
     organizationName: "Traveloka",
     description: "Working on various Corporate Technology applications.",

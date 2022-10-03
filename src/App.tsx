@@ -1,12 +1,17 @@
 import React from "react";
 
-import { MainPage } from "./pages";
+import MainRoute from "./routes/MainRoute";
 
 import "./styles/typography.css";
 import "./styles/theme.css";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-  return <MainPage />;
+  return (
+    <BrowserRouter>
+      <MainRoute />
+    </BrowserRouter>
+  );
 }
 
 export default App;

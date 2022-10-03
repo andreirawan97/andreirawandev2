@@ -10,6 +10,8 @@ import ImageInsights from "./image-insights.png";
 import ImagePruhub from "./image-pruhub.png";
 import ImageVisionUI from "./image-visionui.png";
 
+import ImagePlaceholderWeather from "./placeholder-weather.jpg";
+
 import CV from "./cv.pdf";
 
 export {
@@ -25,4 +27,5 @@ export {
   ImagePruhub,
   ImageVisionUI,
   CV,
+  ImagePlaceholderWeather,
 };

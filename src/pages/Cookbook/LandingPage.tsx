@@ -1,23 +1,39 @@
 import { Button } from "@mui/material";
 import Lottie from "lottie-react";
+import { useNavigate } from "react-router-dom";
 
 import { LandingAnimationData } from "../../features/Cookbook/lottie-files";
 
+import "./index.css";
+
 export default function LandingPage() {
+  const navigate = useNavigate();
+
+  const onClickBrowseNow = () => {
+    navigate("/cookbook/browse");
+  };
+
   return (
-    <div className="w-full h-screen px-52">
+    <div className="w-full h-screen xl:px-48 lg:px-32 md:px-16">
       <div className="flex flex-row h-full flex-1">
-        <div className="flex flex-1 items-center">
-          <Lottie
-            loop
-            animationData={LandingAnimationData}
+        <div className="md:flex hidden flex-1 items-center ">
+          <div
             style={{
-              width: 600,
+              maxWidth: 600,
             }}
-          />
+          >
+            <Lottie
+              loop
+              animationData={LandingAnimationData}
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
+          </div>
         </div>
 
-        <div className="flex flex-1 flex-col justify-center items-end">
+        <div className="flex flex-1 flex-col justify-center md:items-end items-center">
           <h1 className="font-bold text-5xl mb-3">Learn Cooking</h1>
           <span className="font-light text-xl mb-3">
             Explore 100,000+ recipes
@@ -29,6 +45,7 @@ export default function LandingPage() {
               color: "white",
               textTransform: "none",
             }}
+            onClick={onClickBrowseNow}
           >
             Browse Now
           </Button>

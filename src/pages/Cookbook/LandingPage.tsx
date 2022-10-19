@@ -1,6 +1,6 @@
-import { Button } from "@mui/material";
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../features/Cookbook/core-ui";
 
 import { LandingAnimationData } from "../../features/Cookbook/lottie-files";
 
@@ -14,12 +14,20 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="w-full h-screen xl:px-48 lg:px-32 md:px-16">
+    <div
+      className="w-full h-screen xl:px-48 lg:px-32 md:px-16"
+      // style={{
+      //   background:
+      //     "radial-gradient(circle at 10% 20%, rgb(255, 197, 61) 0%, rgb(255, 94, 7) 90%)",
+      //   WebkitBackdropFilter: "blur(11.3px)",
+      //   backdropFilter: "blur(11.3px)",
+      // }}
+    >
       <div className="flex flex-row h-full flex-1">
         <div className="md:flex hidden flex-1 items-center ">
           <div
             style={{
-              maxWidth: 600,
+              maxWidth: 700,
             }}
           >
             <Lottie
@@ -28,6 +36,7 @@ export default function LandingPage() {
               style={{
                 maxWidth: "100%",
                 height: "auto",
+                backgroundColor: "transparent",
               }}
             />
           </div>
@@ -40,15 +49,13 @@ export default function LandingPage() {
           </span>
 
           <Button
-            variant="contained"
-            style={{
-              color: "white",
-              textTransform: "none",
-            }}
+            label="Browse Now"
             onClick={onClickBrowseNow}
-          >
-            Browse Now
-          </Button>
+            labelStyle={{
+              fontWeight: "bold",
+              color: "white",
+            }}
+          />
         </div>
       </div>
     </div>

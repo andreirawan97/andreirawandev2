@@ -75,13 +75,10 @@ export default function BrowsePage() {
                 <div key={i}>
                   <div className="flex flex-1 flex-col rounded-xl bg-white shadow-lg">
                     {recipe.image && (
-                      <LazyImage
-                        src={recipe.image}
-                        className="rounded-t-xl mb-3"
-                      />
+                      <LazyImage src={recipe.image} className="rounded-t-xl" />
                     )}
 
-                    <span className="font-bold mb-6 mx-3 text-center mt-3">
+                    <span className="font-bold mb-6 mx-3 text-center mt-6">
                       {recipe.title}
                     </span>
 

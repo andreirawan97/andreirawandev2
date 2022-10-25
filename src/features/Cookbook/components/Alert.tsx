@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function Alert(props: Props) {
-  const { onClose, severity, isOpen, autoHideDuration = 5000, message } = props;
+  const { onClose, severity, isOpen, autoHideDuration, message } = props;
 
   return (
     <Snackbar

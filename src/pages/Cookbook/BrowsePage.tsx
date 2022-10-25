@@ -9,7 +9,10 @@ import {
   Searchbar,
 } from "../../features/Cookbook/components";
 import recipeService from "../../features/Cookbook/services/recipeService";
-import { Recipe } from "../../features/Cookbook/types/globalTypes";
+import {
+  APIErrorResponse,
+  Recipe,
+} from "../../features/Cookbook/types/globalTypes";
 import { Button } from "../../features/Cookbook/core-ui";
 
 import "./index.css";
@@ -29,8 +32,14 @@ export default function BrowsePage() {
       const { data } = await recipeService.getRandomRecipes();
       setRecipes(data.recipes);
     } catch (e) {
-      const _e = e as AxiosError;
-      setError(_e.message);
+      const _e = e as AxiosError<APIErrorResponse>;
+      if (_e.response) {
+        setError(
+          `Error ${_e.response.data.code} - ${_e.response.data.message}`
+        );
+      } else {
+        setError("Unknown error occured.");
+      }
     } finally {
       setFetchingRecipes(false);
     }
@@ -48,8 +57,14 @@ export default function BrowsePage() {
 
       setRecipes(newRecipes);
     } catch (e) {
-      const _e = e as AxiosError;
-      setError(_e.message);
+      const _e = e as AxiosError<APIErrorResponse>;
+      if (_e.response) {
+        setError(
+          `Error ${_e.response.data.code} - ${_e.response.data.message}`
+        );
+      } else {
+        setError("Unknown error occured.");
+      }
     } finally {
       setFetchingMoreRecipes(false);
     }
@@ -81,7 +96,7 @@ export default function BrowsePage() {
 
       <Searchbar onClickRandom={getRandomRecipes} />
 
-      <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center">
+      <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
         {isFetchingRecipes ? (
           <CircularProgress />
         ) : (

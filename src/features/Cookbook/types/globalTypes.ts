@@ -95,3 +95,9 @@ export interface Metric {
   unitShort: string;
   unitLong: string;
 }
+
+export type APIErrorResponse = {
+  code: number;
+  message: string;
+  status: string;
+};

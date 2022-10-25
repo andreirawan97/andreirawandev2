@@ -1,27 +1,32 @@
 import { Skeleton } from "@mui/material";
-import React, { ImgHTMLAttributes, useState } from "react";
+import React, { CSSProperties, ImgHTMLAttributes, useState } from "react";
 
-type Props = ImgHTMLAttributes<HTMLImageElement>;
+type Props = {
+  skeletonHeight: number;
+  containerClassName?: string;
+  containerStyle?: CSSProperties;
+} & ImgHTMLAttributes<HTMLImageElement>;
 
 export default function LazyImage(props: Props) {
   const [isLoading, setLoading] = useState(true);
 
   return (
-    <div className="flex flex-1 justify-center items-center">
+    <div className={props.containerClassName}>
       <Skeleton
         className={props.className}
         variant="rectangular"
-        height={180}
+        height={props.skeletonHeight}
         width="100%"
-        style={{ display: isLoading ? "block" : "none" }}
+        style={{ display: isLoading ? "block" : "none", ...props.style }}
       />
 
       <img
         alt=""
         {...props}
         style={{
-          width: "auto",
+          width: "100%",
           display: isLoading ? "none" : "block",
+          ...props.style,
         }}
         onLoad={() => {
           setLoading(false);

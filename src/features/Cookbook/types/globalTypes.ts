@@ -41,6 +41,7 @@ export interface Recipe {
   analyzedInstructions: Recipe_AnalyzedInstruction[];
   originalId: null;
   spoonacularSourceUrl: string;
+  winePairing?: Record<string, unknown>;
 }
 
 export interface Recipe_AnalyzedInstruction {

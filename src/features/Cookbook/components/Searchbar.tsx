@@ -1,7 +1,7 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { Search } from "@mui/icons-material";
 import { CasinoOutlined } from "@mui/icons-material";
-import { COLORS } from "../constants/colors";
+
 import { Button } from "../core-ui";
 
 type Props = {
@@ -13,8 +13,8 @@ export default function Searchbar(props: Props) {
   const { onChangeText, onClickRandom } = props;
 
   return (
-    <div className="flex flex-row items-center w-full max-w-3xl mb-12">
-      <div className="flex flex-row items-center px-6 py-3 bg-white rounded-3xl shadow-lg w-full mr-6">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-3xl mb-12">
+      <div className="flex flex-row items-center px-6 py-3 self-center bg-white rounded-3xl shadow-lg w-full md:mr-6 mb-6 md:mb-0">
         <Search
           style={{
             marginRight: 24,

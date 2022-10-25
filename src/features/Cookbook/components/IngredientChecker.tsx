@@ -1,4 +1,4 @@
-import { Checkbox, Divider } from "@mui/material";
+import { Checkbox } from "@mui/material";
 import { useState } from "react";
 import { Recipe_ExtendedIngredient } from "../types/globalTypes";
 

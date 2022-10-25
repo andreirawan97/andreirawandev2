@@ -1,10 +1,5 @@
-import {
-  AccessTime,
-  Group,
-  MonetizationOn,
-  ExpandLess,
-} from "@mui/icons-material";
-import { Chip, Divider } from "@mui/material";
+import { AccessTime, Group, MonetizationOn } from "@mui/icons-material";
+import { Chip } from "@mui/material";
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -15,9 +10,7 @@ import {
   IngredientChecker,
   InstructionStep,
 } from "../../features/Cookbook/components";
-import { COLORS } from "../../features/Cookbook/constants/colors";
 import { Disclosure, LazyImage } from "../../features/Cookbook/core-ui";
-import { MOCK_RECIPE } from "../../features/Cookbook/mocks/recipe";
 import recipeService from "../../features/Cookbook/services/recipeService";
 import { Recipe } from "../../features/Cookbook/types/globalTypes";
 import { capitalizedFirstLetter } from "../../features/Cookbook/utils/stringUtil";

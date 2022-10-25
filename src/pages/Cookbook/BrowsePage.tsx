@@ -1,10 +1,10 @@
-import { CircularProgress } from "@mui/material";
 import Masonry from "@mui/lab/Masonry";
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 
 import {
   Alert,
+  Loader,
   RecipeCard,
   Searchbar,
 } from "../../features/Cookbook/components";
@@ -97,10 +97,8 @@ export default function BrowsePage() {
       <Searchbar onClickRandom={getRandomRecipes} />
 
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
-        {isFetchingRecipes ? (
-          <CircularProgress />
-        ) : (
-          !!recipes.length && (
+        <Loader loading={isFetchingRecipes}>
+          {!!recipes.length && (
             <div className="flex flex-1 w-full flex-col items-center">
               <Masonry
                 columns={{
@@ -121,9 +119,7 @@ export default function BrowsePage() {
                 ))}
               </Masonry>
 
-              {isFetchingMoreRecipes ? (
-                <CircularProgress />
-              ) : (
+              <Loader loading={isFetchingMoreRecipes}>
                 <Button
                   label="Load More"
                   containerStyle={{
@@ -135,10 +131,10 @@ export default function BrowsePage() {
                   }}
                   onClick={getMoreRandomRecipes}
                 />
-              )}
+              </Loader>
             </div>
-          )
-        )}
+          )}
+        </Loader>
       </div>
 
       <Alert

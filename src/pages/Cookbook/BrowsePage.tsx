@@ -9,7 +9,6 @@ import {
   Searchbar,
 } from "../../features/Cookbook/components";
 import recipeService from "../../features/Cookbook/services/recipeService";
-import { MOCK_RECIPES } from "../../features/Cookbook/mocks/recipes";
 import { Recipe } from "../../features/Cookbook/types/globalTypes";
 import { Button } from "../../features/Cookbook/core-ui";
 

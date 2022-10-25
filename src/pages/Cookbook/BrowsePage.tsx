@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 import {
   Alert,
-  Loader,
   RecipeCard,
   Searchbar,
 } from "../../features/Cookbook/components";
@@ -13,7 +12,7 @@ import {
   APIErrorResponse,
   Recipe,
 } from "../../features/Cookbook/types/globalTypes";
-import { Button } from "../../features/Cookbook/core-ui";
+import { Button, Loading } from "../../features/Cookbook/core-ui";
 
 import "./index.css";
 
@@ -97,7 +96,7 @@ export default function BrowsePage() {
       <Searchbar onClickRandom={getRandomRecipes} />
 
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
-        <Loader loading={isFetchingRecipes}>
+        <Loading loading={isFetchingRecipes}>
           {!!recipes.length && (
             <div className="flex flex-1 w-full flex-col items-center">
               <Masonry
@@ -119,7 +118,7 @@ export default function BrowsePage() {
                 ))}
               </Masonry>
 
-              <Loader loading={isFetchingMoreRecipes}>
+              <Loading loading={isFetchingMoreRecipes}>
                 <Button
                   label="Load More"
                   containerStyle={{
@@ -131,10 +130,10 @@ export default function BrowsePage() {
                   }}
                   onClick={getMoreRandomRecipes}
                 />
-              </Loader>
+              </Loading>
             </div>
           )}
-        </Loader>
+        </Loading>
       </div>
 
       <Alert

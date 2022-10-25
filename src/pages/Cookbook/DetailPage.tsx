@@ -9,9 +9,12 @@ import {
   Alert,
   IngredientChecker,
   InstructionStep,
-  Loader,
 } from "../../features/Cookbook/components";
-import { Disclosure, LazyImage } from "../../features/Cookbook/core-ui";
+import {
+  Disclosure,
+  LazyImage,
+  Loading,
+} from "../../features/Cookbook/core-ui";
 import recipeService from "../../features/Cookbook/services/recipeService";
 import {
   APIErrorResponse,
@@ -60,7 +63,7 @@ export default function DetailPage() {
         backgroundColor: "#fcfbff",
       }}
     >
-      <Loader loading={isFetching}>
+      <Loading loading={isFetching}>
         {recipe && (
           <div className="flex flex-1 flex-col w-full max-w-6xl">
             <div className="flex w-full flex-col lg:flex-row items-center lg:items-start mb-6">
@@ -226,7 +229,7 @@ export default function DetailPage() {
             </div>
           </div>
         )}
-      </Loader>
+      </Loading>
 
       <Alert
         message={error}

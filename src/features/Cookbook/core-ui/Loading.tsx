@@ -7,7 +7,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function Loader(props: Props) {
+export default function Loading(props: Props) {
   const { loading, containerStyle, children } = props;
 
   return (

@@ -1,6 +1,6 @@
 import Masonry from "@mui/lab/Masonry";
 import { AxiosError } from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Alert,
@@ -97,7 +97,7 @@ export default function BrowsePage() {
 
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
         <Loading loading={isFetchingRecipes}>
-          {!!recipes.length && (
+          {!!recipes.length ? (
             <div className="flex flex-1 w-full flex-col items-center">
               <Masonry
                 columns={{
@@ -132,6 +132,8 @@ export default function BrowsePage() {
                 />
               </Loading>
             </div>
+          ) : (
+            <></>
           )}
         </Loading>
       </div>

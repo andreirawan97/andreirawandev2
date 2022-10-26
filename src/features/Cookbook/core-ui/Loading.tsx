@@ -1,18 +1,20 @@
 import { CircularProgress } from "@mui/material";
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties } from "react";
 
 type Props = {
   loading: boolean;
   containerStyle?: CSSProperties;
-  children: ReactNode;
+  children: JSX.Element;
 };
 
 export default function Loading(props: Props) {
   const { loading, containerStyle, children } = props;
 
-  return (
+  return loading ? (
     <div style={containerStyle}>
-      {loading ? <CircularProgress /> : children}
+      <CircularProgress />
     </div>
+  ) : (
+    children
   );
 }

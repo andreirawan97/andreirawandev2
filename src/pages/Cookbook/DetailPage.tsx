@@ -1,7 +1,7 @@
 import { AccessTime, Group, MonetizationOn } from "@mui/icons-material";
 import { Chip } from "@mui/material";
 import { AxiosError } from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import xss from "xss";
 
@@ -64,7 +64,7 @@ export default function DetailPage() {
       }}
     >
       <Loading loading={isFetching}>
-        {recipe && (
+        {recipe ? (
           <div className="flex flex-1 flex-col w-full max-w-6xl">
             <div className="flex w-full flex-col lg:flex-row items-center lg:items-start mb-6">
               <LazyImage
@@ -151,7 +151,7 @@ export default function DetailPage() {
                         color: "#4b4b65",
                       }}
                     >
-                      ${recipe.pricePerServing}
+                      ${Math.round(recipe.pricePerServing) / 100} per serving
                     </span>
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function DetailPage() {
             <div className="flex flex-col w-full max-w-6xl mb-6">
               <Disclosure title="Summary">
                 <div
-                  className="text-justify"
+                  className="text-justify text-base"
                   dangerouslySetInnerHTML={{
                     __html: xss(recipe.summary),
                   }}
@@ -228,6 +228,8 @@ export default function DetailPage() {
               </div>
             </div>
           </div>
+        ) : (
+          <></>
         )}
       </Loading>
 

@@ -18,6 +18,8 @@ import "./index.css";
 
 export default function BrowsePage() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const [isFetchingRecipes, setFetchingRecipes] = useState(false);
   const [isFetchingMoreRecipes, setFetchingMoreRecipes] = useState(false);
   const [error, setError] = useState<string>("");
@@ -52,8 +54,6 @@ export default function BrowsePage() {
       const { data } = await recipeService.getRandomRecipes();
       const newRecipes = [...recipes, ...data.recipes];
 
-      console.log(newRecipes);
-
       setRecipes(newRecipes);
     } catch (e) {
       const _e = e as AxiosError<APIErrorResponse>;
@@ -67,6 +67,10 @@ export default function BrowsePage() {
     } finally {
       setFetchingMoreRecipes(false);
     }
+  };
+
+  const onSubmitSearch = () => {
+    console.log(searchQuery);
   };
 
   const onClickRecipe = (id: number) => {
@@ -90,10 +94,15 @@ export default function BrowsePage() {
           color: "#4b4b65",
         }}
       >
-        Hello, let us find you find a recipe!
+        Hello, let us help you find a recipe!
       </span>
 
-      <Searchbar onClickRandom={getRandomRecipes} />
+      <Searchbar
+        value={searchQuery}
+        onSubmit={onSubmitSearch}
+        onClickRandom={getRandomRecipes}
+        onChangeText={setSearchQuery}
+      />
 
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
         <Loading loading={isFetchingRecipes}>

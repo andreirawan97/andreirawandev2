@@ -6,6 +6,7 @@ import {
   LandingPage as CookbookLandingPage,
   BrowsePage as CookbookBrowsePage,
   DetailPage as CookbookDetailPage,
+  SearchPage as CookbookSearchPage,
 } from "../pages/Cookbook";
 
 export default function MainRoute() {
@@ -26,6 +27,14 @@ export default function MainRoute() {
         element={
           <Page title="Cookbook">
             <CookbookBrowsePage />
+          </Page>
+        }
+      />
+      <Route
+        path="/cookbook/search"
+        element={
+          <Page title="Cookbook">
+            <CookbookSearchPage />
           </Page>
         }
       />

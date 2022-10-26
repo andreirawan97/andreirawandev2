@@ -18,6 +18,26 @@ const recipeService = {
       },
     });
   },
+  searchRecipe: (
+    query: string,
+    offset: number = 0
+  ): Promise<
+    AxiosResponse<{
+      number: number;
+      offset: number;
+      results: Recipe[];
+    }>
+  > => {
+    return api.get(`/recipes/complexSearch`, {
+      params: {
+        addRecipeInformation: true,
+        apiKey: SECRET,
+        number: 9,
+        query,
+        offset,
+      },
+    });
+  },
 };
 
 export default recipeService;

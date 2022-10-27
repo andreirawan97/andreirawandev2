@@ -26,6 +26,7 @@ const recipeService = {
       number: number;
       offset: number;
       results: Recipe[];
+      totalResults: number;
     }>
   > => {
     return api.get(`/recipes/complexSearch`, {

@@ -9,8 +9,8 @@ type Props = {
   value?: string;
   onChangeText?: (value: string) => void;
   onSubmit?: () => void;
-  onClickRandom?: () => void;
-  onClickFilter?: () => void; // If not undefined, it will automatically show the filter button
+  onClickRandom?: () => void; // If defined, it will automatically show the random button
+  onClickFilter?: () => void; // If defined, it will automatically show the filter button
 };
 
 export default function Searchbar(props: Props) {
@@ -26,7 +26,7 @@ export default function Searchbar(props: Props) {
       <div className="flex flex-row items-center relative px-6 py-3 self-center bg-white rounded-3xl shadow-lg w-full md:mr-6 mb-6 md:mb-0">
         <Search
           style={{
-            marginRight: 24,
+            marginRight: 12,
           }}
         />
 
@@ -61,21 +61,23 @@ export default function Searchbar(props: Props) {
         )}
       </div>
 
-      <Button
-        onClick={onClickRandom}
-        iconLeft={
-          <CasinoOutlined
-            style={{
-              color: "white",
-            }}
-          />
-        }
-        labelStyle={{
-          fontWeight: "bold",
-          color: "white",
-        }}
-        label="Random"
-      />
+      {onClickRandom && (
+        <Button
+          onClick={onClickRandom}
+          iconLeft={
+            <CasinoOutlined
+              style={{
+                color: "white",
+              }}
+            />
+          }
+          labelStyle={{
+            fontWeight: "bold",
+            color: "white",
+          }}
+          label="Random"
+        />
+      )}
     </div>
   );
 }

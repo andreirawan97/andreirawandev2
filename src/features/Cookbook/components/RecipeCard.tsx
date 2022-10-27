@@ -5,7 +5,7 @@ import { Recipe } from "../types/globalTypes";
 
 type Props = {
   recipe: Recipe;
-  onClickRecipe: (id: number) => void;
+  onClickRecipe?: (id: number) => void;
 };
 
 export default function RecipeCard(props: Props) {
@@ -15,7 +15,7 @@ export default function RecipeCard(props: Props) {
     <div
       className="hover:scale-105 transition-transform cursor-pointer"
       onClick={() => {
-        onClickRecipe(recipe.id);
+        onClickRecipe && onClickRecipe(recipe.id);
       }}
     >
       <div className="flex flex-1 flex-col rounded-xl bg-white shadow-lg">

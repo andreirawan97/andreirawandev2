@@ -1,10 +1,9 @@
-import Masonry from "@mui/lab/Masonry";
 import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 
 import {
   Alert,
-  RecipeCard,
+  RecipeList,
   Searchbar,
 } from "../../features/Cookbook/components";
 import recipeService from "../../features/Cookbook/services/recipeService";
@@ -12,11 +11,14 @@ import {
   APIErrorResponse,
   Recipe,
 } from "../../features/Cookbook/types/globalTypes";
-import { Button, Loading } from "../../features/Cookbook/core-ui";
+import { Loading } from "../../features/Cookbook/core-ui";
 
 import "./index.css";
+import { useNavigate } from "react-router-dom";
 
 export default function BrowsePage() {
+  const navigate = useNavigate();
+
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -70,6 +72,9 @@ export default function BrowsePage() {
   };
 
   const onSubmitSearch = () => {
+    if (searchQuery) {
+      navigate(`/cookbook/search?q=${searchQuery}`);
+    }
     console.log(searchQuery);
   };
 
@@ -107,40 +112,12 @@ export default function BrowsePage() {
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
         <Loading loading={isFetchingRecipes}>
           {!!recipes.length ? (
-            <div className="flex flex-1 w-full flex-col items-center">
-              <Masonry
-                columns={{
-                  xs: 1,
-                  sm: 2,
-                  md: 2,
-                  lg: 3,
-                  xl: 3,
-                }}
-                spacing={3}
-              >
-                {recipes.map((recipe, i) => (
-                  <RecipeCard
-                    recipe={recipe}
-                    key={i}
-                    onClickRecipe={onClickRecipe}
-                  />
-                ))}
-              </Masonry>
-
-              <Loading loading={isFetchingMoreRecipes}>
-                <Button
-                  label="Load More"
-                  containerStyle={{
-                    marginTop: 24,
-                  }}
-                  labelStyle={{
-                    color: "white",
-                    fontWeight: "bold",
-                  }}
-                  onClick={getMoreRandomRecipes}
-                />
-              </Loading>
-            </div>
+            <RecipeList
+              onClickGetMoreRecipes={getMoreRandomRecipes}
+              isFetchingMoreRecipes={isFetchingMoreRecipes}
+              onClickRecipe={onClickRecipe}
+              recipes={recipes}
+            />
           ) : (
             <></>
           )}

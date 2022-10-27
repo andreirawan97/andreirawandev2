@@ -156,32 +156,50 @@ export default function DetailPage() {
                   </div>
                 </div>
 
-                {(!!recipe.diets.length || !!recipe.dishTypes.length) && (
-                  <div className="flex flex-row flex-wrap max-w-xl">
-                    {!!recipe.diets.length &&
-                      recipe.diets.map((diet) => (
-                        <Chip
-                          key={diet}
-                          label={capitalizedFirstLetter(diet)}
-                          style={{
-                            marginRight: 8,
-                            marginBottom: 12,
-                          }}
-                        />
-                      ))}
-                    {!!recipe.dishTypes.length &&
-                      recipe.dishTypes.map((dishType) => (
-                        <Chip
-                          key={dishType}
-                          label={capitalizedFirstLetter(dishType)}
-                          style={{
-                            marginRight: 8,
-                            marginBottom: 12,
-                          }}
-                        />
-                      ))}
-                  </div>
-                )}
+                <div className="flex flex-row flex-wrap max-w-xl">
+                  {recipe.vegetarian && (
+                    <Chip
+                      color="success"
+                      label="Vegetarian"
+                      style={{
+                        marginRight: 8,
+                        marginBottom: 12,
+                      }}
+                    />
+                  )}
+                  {recipe.vegan && (
+                    <Chip
+                      color="success"
+                      label="Vegan"
+                      style={{
+                        marginRight: 8,
+                        marginBottom: 12,
+                      }}
+                    />
+                  )}
+                  {!!recipe.diets.length &&
+                    recipe.diets.map((diet) => (
+                      <Chip
+                        key={diet}
+                        label={capitalizedFirstLetter(diet)}
+                        style={{
+                          marginRight: 8,
+                          marginBottom: 12,
+                        }}
+                      />
+                    ))}
+                  {!!recipe.dishTypes.length &&
+                    recipe.dishTypes.map((dishType) => (
+                      <Chip
+                        key={dishType}
+                        label={capitalizedFirstLetter(dishType)}
+                        style={{
+                          marginRight: 8,
+                          marginBottom: 12,
+                        }}
+                      />
+                    ))}
+                </div>
               </div>
             </div>
 

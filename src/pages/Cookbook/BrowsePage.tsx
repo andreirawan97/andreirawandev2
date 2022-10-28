@@ -1,5 +1,6 @@
 import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   Alert,
@@ -14,7 +15,6 @@ import {
 import { Loading } from "../../features/Cookbook/core-ui";
 
 import "./index.css";
-import { useNavigate } from "react-router-dom";
 
 export default function BrowsePage() {
   const navigate = useNavigate();

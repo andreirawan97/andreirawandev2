@@ -1,5 +1,5 @@
-import { AccessTime, Group, MonetizationOn } from "@mui/icons-material";
-import { Chip } from "@mui/material";
+import { AccessTime, Group, MonetizationOn, Share } from "@mui/icons-material";
+import { Chip, IconButton, Tooltip } from "@mui/material";
 import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -26,8 +26,10 @@ export default function DetailPage() {
   const { id } = useParams();
 
   const [isFetching, setFetching] = useState(true);
-  const [error, setError] = useState<string>("");
   const [recipe, setRecipe] = useState<Recipe>();
+
+  const [info, setInfo] = useState("");
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     if (id) {
@@ -55,6 +57,15 @@ export default function DetailPage() {
         });
     }
   }, [id]);
+
+  const onClickShareLink = () => {
+    if (recipe) {
+      const text = `Go check this recipe "${recipe.title}" on ${window.document.URL}`;
+      navigator.clipboard.writeText(text);
+
+      setInfo("Link copied!");
+    }
+  };
 
   return (
     <div
@@ -156,27 +167,7 @@ export default function DetailPage() {
                   </div>
                 </div>
 
-                <div className="flex flex-row flex-wrap max-w-xl">
-                  {recipe.vegetarian && (
-                    <Chip
-                      color="success"
-                      label="Vegetarian"
-                      style={{
-                        marginRight: 8,
-                        marginBottom: 12,
-                      }}
-                    />
-                  )}
-                  {recipe.vegan && (
-                    <Chip
-                      color="success"
-                      label="Vegan"
-                      style={{
-                        marginRight: 8,
-                        marginBottom: 12,
-                      }}
-                    />
-                  )}
+                <div className="flex flex-row flex-wrap max-w-xl mb-3">
                   {!!recipe.diets.length &&
                     recipe.diets.map((diet) => (
                       <Chip
@@ -199,6 +190,25 @@ export default function DetailPage() {
                         }}
                       />
                     ))}
+                </div>
+
+                <div className="flex flex-row items-center flex-wrap">
+                  <Tooltip title="Share link">
+                    <IconButton
+                      className="mt-12"
+                      style={{
+                        backgroundColor: "rgb(59,130,246)",
+                      }}
+                      onClick={onClickShareLink}
+                    >
+                      <Share
+                        fontSize="medium"
+                        style={{
+                          color: "white",
+                        }}
+                      />
+                    </IconButton>
+                  </Tooltip>
                 </div>
               </div>
             </div>
@@ -256,6 +266,14 @@ export default function DetailPage() {
         isOpen={!!error}
         onClose={() => setError("")}
         severity="error"
+      />
+
+      <Alert
+        message={info}
+        isOpen={!!info}
+        onClose={() => setInfo("")}
+        autoHideDuration={3000}
+        severity="info"
       />
     </div>
   );

@@ -2,9 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import recipeService from "../../features/Cookbook/services/recipeService";
-import { RecipeList, Searchbar } from "../../features/Cookbook/components";
-import { Recipe } from "../../features/Cookbook/types/globalTypes";
+import {
+  Alert,
+  RecipeList,
+  Searchbar,
+} from "../../features/Cookbook/components";
+import {
+  APIErrorResponse,
+  Recipe,
+} from "../../features/Cookbook/types/globalTypes";
 import { Loading } from "../../features/Cookbook/core-ui";
+import { AxiosError } from "axios";
 
 export default function SearchPage() {
   const navigate = useNavigate();
@@ -17,26 +25,51 @@ export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isFetchingRecipes, setFetchingRecipes] = useState(false);
   const [isFetchingMoreRecipes, setFetchingMoreRecipes] = useState(false);
+  const [error, setError] = useState<string>("");
 
   const getSearchResult = async (query: string) => {
-    setFetchingRecipes(true);
+    try {
+      setFetchingRecipes(true);
 
-    const { data } = await recipeService.searchRecipe(query);
+      const { data } = await recipeService.searchRecipe(query);
 
-    setRecipes(data.results);
-    setTotalResults(data.totalResults);
-    setFetchingRecipes(false);
+      setRecipes(data.results);
+      setTotalResults(data.totalResults);
+    } catch (e) {
+      const _e = e as AxiosError<APIErrorResponse>;
+      if (_e.response) {
+        setError(
+          `Error ${_e.response.data.code} - ${_e.response.data.message}`
+        );
+      } else {
+        setError("Unknown error occured.");
+      }
+    } finally {
+      setFetchingRecipes(false);
+    }
   };
 
   const getMoreSearchResult = async (query: string) => {
-    const _offset = recipes.length;
+    try {
+      const _offset = recipes.length;
 
-    setFetchingMoreRecipes(true);
+      setFetchingMoreRecipes(true);
 
-    const { data } = await recipeService.searchRecipe(query, _offset);
+      const { data } = await recipeService.searchRecipe(query, _offset);
 
-    setRecipes((oldRecipes) => [...oldRecipes, ...data.results]);
-    setFetchingMoreRecipes(false);
+      setRecipes((oldRecipes) => [...oldRecipes, ...data.results]);
+    } catch (e) {
+      const _e = e as AxiosError<APIErrorResponse>;
+      if (_e.response) {
+        setError(
+          `Error ${_e.response.data.code} - ${_e.response.data.message}`
+        );
+      } else {
+        setError("Unknown error occured.");
+      }
+    } finally {
+      setFetchingMoreRecipes(false);
+    }
   };
 
   useEffect(() => {
@@ -73,7 +106,6 @@ export default function SearchPage() {
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
         <Searchbar
           value={searchQuery}
-          onClickFilter={() => {}}
           onChangeText={setSearchQuery}
           onSubmit={onSubmitSearch}
         />
@@ -111,6 +143,13 @@ export default function SearchPage() {
           )}
         </Loading>
       </div>
+
+      <Alert
+        message={error}
+        isOpen={!!error}
+        onClose={() => setError("")}
+        severity="error"
+      />
     </div>
   );
 }

@@ -75,7 +75,6 @@ export default function BrowsePage() {
     if (searchQuery) {
       navigate(`/cookbook/search?q=${searchQuery}`);
     }
-    console.log(searchQuery);
   };
 
   const onClickRecipe = (id: number) => {

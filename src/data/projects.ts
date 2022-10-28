@@ -12,7 +12,7 @@ export type PersonalProject = {
   name: string;
   description: string;
   usedTechnologies: string;
-  githubLink: string;
+  githubLink?: string;
   projectLink?: string;
 };
 
@@ -31,6 +31,12 @@ export const personalProjects: Array<PersonalProject> = [
     description: "A simple wrapper to animate your React Native component.",
     usedTechnologies: "Typescript, React Native",
     githubLink: "https://github.com/andreirawan97/FluidReactNative",
+  },
+  {
+    name: "Cookbook",
+    description: "A simple website to find recipe.",
+    usedTechnologies: "Typescript, React, Lottie, Axios",
+    projectLink: "https://andreirawan.dev/cookbook",
   },
 ];
 

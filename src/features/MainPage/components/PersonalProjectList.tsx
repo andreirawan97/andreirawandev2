@@ -35,12 +35,14 @@ export default function PersonalProjectList(props: Props) {
                 Open
               </span>
             )}
-            <span
-              onClick={onClickGithubLink}
-              className="text-primary cursor-pointer"
-            >
-              View more
-            </span>
+            {githubLink && (
+              <span
+                onClick={onClickGithubLink}
+                className="text-primary cursor-pointer"
+              >
+                View more
+              </span>
+            )}
           </div>
         </div>
         {/* <div className="h-auto w-1 bg-primary-shade rounded" /> */}

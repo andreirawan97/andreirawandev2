@@ -25,6 +25,14 @@ ul.dotted-list li::before {
   margin-left: -1em;
 }
 
+input:focus {
+  outline: none;
+}
+
+.flex-1point5 {
+  flex: 1.5 1 0%;
+}
+
 .flex-2 {
   flex: 2 1 0%;
 }

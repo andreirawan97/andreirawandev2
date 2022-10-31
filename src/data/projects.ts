@@ -14,6 +14,7 @@ export type PersonalProject = {
   usedTechnologies: string;
   githubLink?: string;
   projectLink?: string;
+  isNew?: boolean;
 };
 
 export const personalProjects: Array<PersonalProject> = [
@@ -37,6 +38,7 @@ export const personalProjects: Array<PersonalProject> = [
     description: "A simple website to find recipe.",
     usedTechnologies: "Typescript, React, Lottie, Axios",
     projectLink: "https://andreirawan.dev/cookbook",
+    isNew: true,
   },
 ];
 

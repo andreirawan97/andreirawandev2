@@ -8,7 +8,14 @@ type Props = {
 
 export default function PersonalProjectList(props: Props) {
   const { data } = props;
-  const { description, githubLink, name, projectLink, usedTechnologies } = data;
+  const {
+    description,
+    githubLink,
+    name,
+    projectLink,
+    usedTechnologies,
+    isNew,
+  } = data;
 
   const onClickProjectLink = () => {
     window.open(projectLink);
@@ -23,7 +30,14 @@ export default function PersonalProjectList(props: Props) {
       <div className="flex flex-row flex-1 mb-3">
         <div className="h-auto w-1 bg-primary-shade rounded" />
         <div className="flex flex-1 flex-col p-3">
-          <p className="font-bold">{name}</p>
+          <div className="flex flex-row items-center">
+            {isNew && (
+              <div className="bg-primary-shade rounded px-2 mr-2">
+                <p className="text-primary text-sm font-bold">New</p>
+              </div>
+            )}
+            <p className="font-bold">{name}</p>
+          </div>
           <span>{description}</span>
           <span>Used technologies: {usedTechnologies}</span>
           <div className="flex flex-row">

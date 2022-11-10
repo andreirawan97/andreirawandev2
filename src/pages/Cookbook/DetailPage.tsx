@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import xss from "xss";
 
+import { Alert } from "../../components";
 import {
-  Alert,
   IngredientChecker,
   InstructionStep,
 } from "../../features/Cookbook/components";

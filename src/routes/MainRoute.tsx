@@ -8,6 +8,7 @@ import {
   DetailPage as CookbookDetailPage,
   SearchPage as CookbookSearchPage,
 } from "../pages/Cookbook";
+import { MainPage as WordolMainPage } from "../pages/Wordol";
 
 export default function MainRoute() {
   return (
@@ -47,6 +48,16 @@ export default function MainRoute() {
         }
       />
       <Route path="/cookbook/*" element={<Navigate to="/cookbook" />} />
+
+      <Route
+        path="/wordol"
+        element={
+          <Page title="Wordol">
+            <WordolMainPage />
+          </Page>
+        }
+      />
+      <Route path="/wordol/*" element={<Navigate to="/wordol" />} />
 
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

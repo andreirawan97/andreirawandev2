@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { AxiosError } from "axios";
 
 import recipeService from "../../features/Cookbook/services/recipeService";
-import {
-  Alert,
-  RecipeList,
-  Searchbar,
-} from "../../features/Cookbook/components";
+import { RecipeList, Searchbar } from "../../features/Cookbook/components";
 import {
   APIErrorResponse,
   Recipe,
 } from "../../features/Cookbook/types/globalTypes";
 import { Loading } from "../../features/Cookbook/core-ui";
-import { AxiosError } from "axios";
+import { Alert } from "../../components";
 
 export default function SearchPage() {
   const navigate = useNavigate();

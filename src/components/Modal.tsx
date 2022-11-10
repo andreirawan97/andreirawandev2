@@ -1,12 +1,18 @@
 import { Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
+export type ModalActionButton = {
+  onClick: () => void;
+  label: string;
+};
+
 type Props = {
   show: boolean;
   title?: string;
   description?: string;
   onCloseModal?: () => void;
   renderContent?: () => ReactNode;
+  actionButtons?: ModalActionButton[];
 };
 
 export default function Modal(props: Props) {
@@ -16,6 +22,7 @@ export default function Modal(props: Props) {
     title,
     description,
     renderContent,
+    actionButtons,
   } = props;
 
   return (
@@ -72,14 +79,27 @@ export default function Modal(props: Props) {
                   {renderContent && renderContent()}
                 </div>
 
-                <div className="flex flex-1 mt-4 justify-end">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center px-4 pt-2 text-sm font-medium text-primary border border-transparent rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={onCloseModal}
-                  >
-                    Close
-                  </button>
+                <div className="flex flex-1 mt-4 flex-row">
+                  <div className="flex flex-1">
+                    {actionButtons?.map((b) => (
+                      <button
+                        type="button"
+                        className="inline-flex justify-center px-4 text-sm font-medium text-primary border border-transparent rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 mr-2"
+                        onClick={b.onClick}
+                      >
+                        {b.label}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="flex flex-1 justify-end">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center px-4 text-sm font-medium text-primary border border-transparent rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                      onClick={onCloseModal}
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
               </div>
             </Transition.Child>

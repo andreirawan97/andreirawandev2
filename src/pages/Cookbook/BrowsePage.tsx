@@ -2,17 +2,14 @@ import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {
-  Alert,
-  RecipeList,
-  Searchbar,
-} from "../../features/Cookbook/components";
+import { RecipeList, Searchbar } from "../../features/Cookbook/components";
 import recipeService from "../../features/Cookbook/services/recipeService";
 import {
   APIErrorResponse,
   Recipe,
 } from "../../features/Cookbook/types/globalTypes";
 import { Loading } from "../../features/Cookbook/core-ui";
+import { Alert } from "../../components";
 
 import "./index.css";
 

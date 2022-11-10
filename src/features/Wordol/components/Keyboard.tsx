@@ -1,9 +1,9 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useCallback, useEffect } from "react";
 
 const keyboardChars: string[][] = [
   ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
   ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
-  ["ENTER", "z", "x", "c", "v", "b", "n", "m", "BACKSPACE"],
+  ["enter", "z", "x", "c", "v", "b", "n", "m", "backspace"],
 ];
 
 const commonKeyStyle: CSSProperties = {
@@ -22,18 +22,39 @@ const commonKeyStyle: CSSProperties = {
 
 type Props = {
   onPressKey?: (key: string) => void;
+  disableKeyboard?: boolean;
 };
 
 export default function Keyboard(props: Props) {
-  const { onPressKey } = props;
+  const { onPressKey, disableKeyboard } = props;
 
   const _onPressKey = (key: string) => {
-    onPressKey && onPressKey(key);
+    if (!disableKeyboard) onPressKey && onPressKey(key);
   };
+
+  const onKeyUpHandler = useCallback(
+    (e: KeyboardEvent) => {
+      if (
+        !disableKeyboard &&
+        ((e.keyCode >= 65 && e.keyCode <= 90) ||
+          e.key === "Backspace" ||
+          e.key === "Enter")
+      ) {
+        onPressKey && onPressKey(e.key.toLowerCase());
+      }
+    },
+    [onPressKey, disableKeyboard]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keyup", onKeyUpHandler);
+
+    return () => window.removeEventListener("keyup", onKeyUpHandler);
+  }, [onKeyUpHandler]);
 
   const renderKey = (key: string) => {
     switch (key) {
-      case "ENTER": {
+      case "enter": {
         return (
           <div
             className="w-11 md:w-16 text-xs md:text-lg"
@@ -46,7 +67,7 @@ export default function Keyboard(props: Props) {
           </div>
         );
       }
-      case "BACKSPACE": {
+      case "backspace": {
         return (
           <div
             className="w-11 md:w-16 text-xs md:text-lg"
@@ -62,7 +83,7 @@ export default function Keyboard(props: Props) {
       default: {
         return (
           <div
-            className="w-8 md:w-11 text-xs md:text-lg"
+            className="w-7 md:w-11 text-xs md:text-lg"
             style={{
               ...commonKeyStyle,
             }}

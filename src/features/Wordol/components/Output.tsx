@@ -101,7 +101,7 @@ export default function Output(props: Props) {
   const { rowsValue, correctIndexes, doneFlags, presentPositionIndexes } =
     props;
 
-  const outputRows = useMemo(() => [0, 1, 2, 3, 4], []);
+  const outputRows = useMemo(() => [0, 1, 2, 3, 4, 5], []);
 
   return (
     <div className="flex flex-col">

@@ -40,6 +40,13 @@ export const personalProjects: Array<PersonalProject> = [
     projectLink: "https://andreirawan.dev/cookbook",
     isNew: true,
   },
+  {
+    name: "Wordol",
+    description: "A wordle-like website.",
+    usedTechnologies: "Typescript, React",
+    projectLink: "https://andreirawan.dev/wordol",
+    isNew: true,
+  },
 ];
 
 export const works: Array<TimelineData> = [

@@ -303,6 +303,11 @@ export default function MainPage() {
         }}
         renderContent={() => (
           <div className="flex items-center flex-col">
+            <p className="mb-6">
+              Unlike the original <b>Wordle</b>, <b>Wordol</b> is not limited to
+              one word per day! (Randomly generated each session)
+            </p>
+
             <img
               alt="Welcome hint"
               src={WelcomeImageWordol}
@@ -359,6 +364,10 @@ export default function MainPage() {
             </div>
           </div>
         )}
+        containerStyle={{
+          maxHeight: 600,
+          overflowY: "auto",
+        }}
       />
     </div>
   );

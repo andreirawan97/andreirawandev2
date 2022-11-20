@@ -39,7 +39,6 @@ export default function Modal(props: Props) {
           as="div"
           className="absolute inset-0 z-10 overflow-y-auto"
           onClose={onCloseModal}
-          style={containerStyle}
         >
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
@@ -70,7 +69,10 @@ export default function Modal(props: Props) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+              <div
+                className="inline-block w-full max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+                style={containerStyle}
+              >
                 <Dialog.Title
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"

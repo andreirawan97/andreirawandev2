@@ -61,7 +61,7 @@ function OutputBox(props: OutputBoxProps) {
 
   return (
     <div
-      className="flex w-16 h-16 justify-center items-center text-3xl font-bold border mx-1"
+      className="flex w-14 h-14 md:w-16 md:h-16 justify-center items-center text-3xl font-bold border mx-1"
       style={getStyleByState()}
     >
       <span className="select-none">{char?.toUpperCase() ?? ""}</span>

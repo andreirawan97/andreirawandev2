@@ -43,6 +43,9 @@ export default function MainPage() {
     false,
     false,
   ]);
+  const [presentLetters, setPresentLetters] = useState<string[]>([]);
+  const [correctLetters, setCorrectLetters] = useState<string[]>([]);
+  const [absentLetters, setAbsentLetters] = useState<string[]>([]);
 
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [showWinModal, setShowWinModal] = useState(false);
@@ -115,6 +118,12 @@ export default function MainPage() {
                     }
                   })
                   .join("");
+
+                if (!correctLetters.includes(c)) {
+                  const _correctLetters = [...correctLetters, c];
+
+                  setCorrectLetters(_correctLetters);
+                }
               } else if (_correctWord.includes(c)) {
                 _rowsPresentPositionIndexes[currentOutputRowIndex].push(i);
 
@@ -131,6 +140,17 @@ export default function MainPage() {
                     }
                   })
                   .join("");
+
+                if (!presentLetters.includes(c)) {
+                  const _presentLetters = [...presentLetters, c];
+
+                  setPresentLetters(_presentLetters);
+                }
+              } else {
+                if (!absentLetters.includes(c)) {
+                  const _absentLetters = [...absentLetters, c];
+                  setAbsentLetters(_absentLetters);
+                }
               }
             });
 
@@ -169,7 +189,10 @@ export default function MainPage() {
       }
     },
     [
+      absentLetters,
+      correctLetters,
       currentOutputRowIndex,
+      presentLetters,
       rowsCorrectIndexes,
       rowsDoneFlag,
       rowsPresentPositionIndexes,
@@ -206,7 +229,13 @@ export default function MainPage() {
         </div>
 
         <div className="flex flex-1 items-center justify-center">
-          <Keyboard onPressKey={onPressKey} disableKeyboard={isGameOver} />
+          <Keyboard
+            absentLetters={absentLetters}
+            correctLetters={correctLetters}
+            presentLetters={presentLetters}
+            onPressKey={onPressKey}
+            disableKeyboard={isGameOver}
+          />
         </div>
       </div>
 
@@ -268,7 +297,6 @@ export default function MainPage() {
       />
 
       <Modal
-        title="Hello there!"
         show={showWelcomeHintModal}
         onCloseModal={() => {
           setShowWelcomeHintModal(false);

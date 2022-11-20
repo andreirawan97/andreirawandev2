@@ -1,4 +1,5 @@
 import { CSSProperties, useCallback, useEffect } from "react";
+import { COLORS } from "../constants/color";
 
 const keyboardChars: string[][] = [
   ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
@@ -21,12 +22,21 @@ const commonKeyStyle: CSSProperties = {
 };
 
 type Props = {
+  correctLetters: string[];
+  presentLetters: string[];
+  absentLetters: string[];
   onPressKey?: (key: string) => void;
   disableKeyboard?: boolean;
 };
 
 export default function Keyboard(props: Props) {
-  const { onPressKey, disableKeyboard } = props;
+  const {
+    onPressKey,
+    disableKeyboard,
+    absentLetters,
+    correctLetters,
+    presentLetters,
+  } = props;
 
   const _onPressKey = (key: string) => {
     if (!disableKeyboard) onPressKey && onPressKey(key);
@@ -81,11 +91,28 @@ export default function Keyboard(props: Props) {
         );
       }
       default: {
+        const getKeyColor = () => {
+          if (correctLetters.includes(key)) {
+            return {
+              backgroundColor: COLORS.correct,
+              color: "white",
+            };
+          } else if (presentLetters.includes(key)) {
+            return { backgroundColor: COLORS.present, color: "white" };
+          } else if (absentLetters.includes(key)) {
+            return { backgroundColor: COLORS.absent, color: "white" };
+          } else {
+            return { backgroundColor: "#d3d6da", color: "black" };
+          }
+        };
+
         return (
           <div
             className="w-7 md:w-11 text-xs md:text-lg"
             style={{
               ...commonKeyStyle,
+              backgroundColor: getKeyColor().backgroundColor,
+              color: getKeyColor().color,
             }}
             onClick={() => _onPressKey(key)}
           >

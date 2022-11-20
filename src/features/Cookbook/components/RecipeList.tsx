@@ -6,6 +6,7 @@ import { Recipe } from "../types/globalTypes";
 import RecipeCard from "./RecipeCard";
 
 type Props = {
+  totalRecipes?: number;
   recipes: Recipe[];
   isFetchingMoreRecipes: boolean;
   onClickGetMoreRecipes?: () => void;
@@ -18,6 +19,7 @@ export default function RecipeList(props: Props) {
     onClickRecipe,
     onClickGetMoreRecipes,
     isFetchingMoreRecipes,
+    totalRecipes = Number.POSITIVE_INFINITY,
   } = props;
 
   return (
@@ -38,17 +40,28 @@ export default function RecipeList(props: Props) {
       </Masonry>
 
       <Loading loading={isFetchingMoreRecipes}>
-        <Button
-          label="Load More"
-          containerStyle={{
-            marginTop: 24,
-          }}
-          labelStyle={{
-            color: "white",
-            fontWeight: "bold",
-          }}
-          onClick={onClickGetMoreRecipes}
-        />
+        <div>
+          {!!(totalRecipes > recipes.length) ? (
+            <Button
+              label="Load More"
+              containerStyle={{
+                marginTop: 24,
+              }}
+              labelStyle={{
+                color: "white",
+                fontWeight: "bold",
+              }}
+              onClick={onClickGetMoreRecipes}
+            />
+          ) : (
+            <div
+              className="w-2 h-2 bg-gray-400"
+              style={{
+                borderRadius: 12,
+              }}
+            ></div>
+          )}
+        </div>
       </Loading>
     </div>
   );

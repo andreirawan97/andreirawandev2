@@ -121,6 +121,7 @@ export default function SearchPage() {
               </div>
 
               <RecipeList
+                totalRecipes={totalResults}
                 isFetchingMoreRecipes={isFetchingMoreRecipes}
                 onClickGetMoreRecipes={onClickGetMoreRecipes}
                 onClickRecipe={onClickRecipe}

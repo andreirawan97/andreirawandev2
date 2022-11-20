@@ -1,12 +1,16 @@
 import { Snackbar } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { WelcomeImageWordol } from "../../assets/wordol";
 
 import { Modal } from "../../components";
 import { Keyboard, Navbar, Output } from "../../features/Wordol/components";
+import { COLORS } from "../../features/Wordol/constants/color";
+import { STORAGE_KEYS } from "../../features/Wordol/constants/storage";
 import {
   generateRandomWord,
   isAnEnglishWord,
 } from "../../features/Wordol/utils/common";
+import { getFromStorage, setToStorage } from "../../utils/localStorage";
 
 const CORRECT_WORD = generateRandomWord();
 
@@ -43,6 +47,7 @@ export default function MainPage() {
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [showWinModal, setShowWinModal] = useState(false);
   const [showLoseModal, setShowLoseModal] = useState(false);
+  const [showWelcomeHintModal, setShowWelcomeHintModal] = useState(false);
 
   const [isGameOver, setGameOver] = useState(false); // Flag to disable input
 
@@ -60,6 +65,22 @@ export default function MainPage() {
     },
     [currentOutputRowIndex]
   );
+
+  useEffect(() => {
+    function checkWelcomeHint() {
+      const shouldShowHintModal = !!!getFromStorage(
+        STORAGE_KEYS.disableWelcomeHint
+      );
+
+      if (shouldShowHintModal) {
+        setShowWelcomeHintModal(true);
+
+        setToStorage(STORAGE_KEYS.disableWelcomeHint, true);
+      }
+    }
+
+    checkWelcomeHint();
+  }, []);
 
   const onPressKey = useCallback(
     (key: string) => {
@@ -244,6 +265,72 @@ export default function MainPage() {
             onClick: onClickNewGame,
           },
         ]}
+      />
+
+      <Modal
+        title="Hello there!"
+        show={showWelcomeHintModal}
+        onCloseModal={() => {
+          setShowWelcomeHintModal(false);
+        }}
+        renderContent={() => (
+          <div className="flex items-center flex-col">
+            <img
+              alt="Welcome hint"
+              src={WelcomeImageWordol}
+              className="w-60 mb-6"
+            />
+
+            <div className="flex w-full flex-col">
+              <p className="mb-2">
+                <b>How to play:</b>
+              </p>
+
+              <p className="mb-2">Each guess must be a valid 5-letters word.</p>
+
+              <p className="mb-2">
+                The color of the tiles will change to show how close your guess
+                was to the word.
+              </p>
+
+              <p className="mb-2">
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: COLORS.correct,
+                  }}
+                >
+                  Green box{" "}
+                </span>{" "}
+                indicates the letter is in the word and in the correct spot.
+              </p>
+
+              <p className="mb-2">
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: COLORS.present,
+                  }}
+                >
+                  Yellow box{" "}
+                </span>{" "}
+                indicates the letter is in the word but in wrong spot.
+              </p>
+
+              <p>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: COLORS.absent,
+                  }}
+                >
+                  Grey box{" "}
+                </span>{" "}
+                indicates the letter is not in the word.
+              </p>
+            </div>
+          </div>
+        )}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from "react";
+import { CSSProperties, Fragment, ReactNode } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 export type ModalActionButton = {
@@ -13,6 +13,7 @@ type Props = {
   onCloseModal?: () => void;
   renderContent?: () => ReactNode;
   actionButtons?: ModalActionButton[];
+  containerStyle?: CSSProperties;
 };
 
 export default function Modal(props: Props) {
@@ -23,12 +24,13 @@ export default function Modal(props: Props) {
     description,
     renderContent,
     actionButtons,
+    containerStyle,
   } = props;
 
   return (
     <Transition appear show={show} as={Fragment}>
       <div
-        className="w-full h-full absolute z-10 top-0"
+        className="absolute z-10 top-0 bottom-0 left-0 right-0"
         style={{
           backgroundColor: "rgba(0,0,0,0.3)",
         }}
@@ -37,6 +39,7 @@ export default function Modal(props: Props) {
           as="div"
           className="absolute inset-0 z-10 overflow-y-auto"
           onClose={onCloseModal}
+          style={containerStyle}
         >
           <div className="min-h-screen px-4 text-center">
             <Transition.Child

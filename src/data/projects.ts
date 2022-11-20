@@ -43,7 +43,7 @@ export const personalProjects: Array<PersonalProject> = [
   {
     name: "Wordol",
     description: "A wordle-like website.",
-    usedTechnologies: "Typescript, React",
+    usedTechnologies: "Typescript, React, Lottie",
     projectLink: "https://andreirawan.dev/wordol",
     isNew: true,
   },

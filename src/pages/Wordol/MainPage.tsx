@@ -58,6 +58,7 @@ export default function MainPage() {
   const [showWelcomeHintModal, setShowWelcomeHintModal] = useState(false);
 
   const [isGameOver, setGameOver] = useState(false); // Flag to disable input
+  const [isDevFeatureUsed, setDevFeatureUsed] = useState(false); // Flag to track double click on logo
 
   const setRowValue = useCallback(
     (newValue: string) => {
@@ -212,6 +213,7 @@ export default function MainPage() {
   };
 
   const onDoubleClickLogo = () => {
+    setDevFeatureUsed(true);
     setSnackbarMessage(CORRECT_WORD);
   };
 
@@ -281,6 +283,10 @@ export default function MainPage() {
             <p>
               The word was: <b>{CORRECT_WORD}</b>
             </p>
+
+            {isDevFeatureUsed && (
+              <p className="mt-3">But you are using the dev feature :(</p>
+            )}
           </div>
         )}
         actionButtons={[

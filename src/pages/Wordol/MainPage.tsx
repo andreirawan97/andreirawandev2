@@ -1,7 +1,8 @@
 import { Snackbar } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
-import { WelcomeImageWordol } from "../../assets/wordol";
+import Lottie from "lottie-react";
 
+import { WelcomeImageWordol } from "../../assets/wordol";
 import { Modal } from "../../components";
 import { Keyboard, Navbar, Output } from "../../features/Wordol/components";
 import { COLORS } from "../../features/Wordol/constants/color";
@@ -11,6 +12,10 @@ import {
   isAnEnglishWord,
 } from "../../features/Wordol/utils/common";
 import { getFromStorage, setToStorage } from "../../utils/localStorage";
+import {
+  HoorayAnimationData,
+  OhNoAnimationData,
+} from "../../features/Wordol/lottie-files";
 
 const CORRECT_WORD = generateRandomWord();
 
@@ -100,6 +105,9 @@ export default function MainPage() {
             const _rowsCorrectIndexes = [...rowsCorrectIndexes];
             const _rowsPresentPositionIndexes = [...rowsPresentPositionIndexes];
             const _rowsDoneFlag = [...rowsDoneFlag];
+            const _presentLetters = [...presentLetters];
+            const _correctLetters = [...correctLetters];
+            const _absentLetters = [...absentLetters];
 
             currentValue.split("").forEach((c, i) => {
               if (c === _correctWord[i]) {
@@ -120,9 +128,7 @@ export default function MainPage() {
                   .join("");
 
                 if (!correctLetters.includes(c)) {
-                  const _correctLetters = [...correctLetters, c];
-
-                  setCorrectLetters(_correctLetters);
+                  _correctLetters.push(c);
                 }
               } else if (_correctWord.includes(c)) {
                 _rowsPresentPositionIndexes[currentOutputRowIndex].push(i);
@@ -142,14 +148,11 @@ export default function MainPage() {
                   .join("");
 
                 if (!presentLetters.includes(c)) {
-                  const _presentLetters = [...presentLetters, c];
-
-                  setPresentLetters(_presentLetters);
+                  _presentLetters.push(c);
                 }
               } else {
                 if (!absentLetters.includes(c)) {
-                  const _absentLetters = [...absentLetters, c];
-                  setAbsentLetters(_absentLetters);
+                  _absentLetters.push(c);
                 }
               }
             });
@@ -160,6 +163,9 @@ export default function MainPage() {
             setRowsPresentPositionIndexes(_rowsPresentPositionIndexes);
             setRowsDoneFlag(_rowsDoneFlag);
             setCurrentOutputRowIndex((prevRowIndex) => prevRowIndex + 1);
+            setCorrectLetters(_correctLetters);
+            setAbsentLetters(_absentLetters);
+            setPresentLetters(_presentLetters);
 
             const wordMatched = currentValue.toLowerCase() === CORRECT_WORD;
             // Win
@@ -260,6 +266,17 @@ export default function MainPage() {
         }}
         renderContent={() => (
           <div>
+            <div className="flex justify-center mb-6">
+              <Lottie
+                loop
+                animationData={HoorayAnimationData}
+                style={{
+                  maxWidth: "50%",
+                  height: "auto",
+                  backgroundColor: "transparent",
+                }}
+              />
+            </div>
             <p>You guessed it in {currentOutputRowIndex} attempt(s)!</p>
             <p>
               The word was: <b>{CORRECT_WORD}</b>
@@ -282,6 +299,17 @@ export default function MainPage() {
         }}
         renderContent={() => (
           <div>
+            <div className="flex justify-center mb-6">
+              <Lottie
+                loop
+                animationData={OhNoAnimationData}
+                style={{
+                  maxWidth: "50%",
+                  height: "auto",
+                  backgroundColor: "transparent",
+                }}
+              />
+            </div>
             <p>{`You failed to guessed the word :(`}</p>
             <p>
               The word was: <b>{CORRECT_WORD}</b>

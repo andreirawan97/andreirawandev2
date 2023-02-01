@@ -2,6 +2,7 @@ import { AccessTime, Group, MonetizationOn, Share } from "@mui/icons-material";
 import { Chip, IconButton, Tooltip } from "@mui/material";
 import { AxiosError } from "axios";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import xss from "xss";
 
@@ -74,6 +75,10 @@ export default function DetailPage() {
         backgroundColor: "#fcfbff",
       }}
     >
+      <Helmet>
+        <meta name="description" content="Check out this recipe!" />
+      </Helmet>
+
       <Loading loading={isFetching}>
         {recipe ? (
           <div className="flex flex-1 flex-col w-full max-w-6xl">

@@ -2,7 +2,6 @@ import { SocialIcon } from "react-social-icons";
 import { StickyContainer, Sticky } from "react-sticky";
 import { useEffect, useRef, useState } from "react";
 import Wave from "react-wavify";
-import Fade from "react-reveal/Fade";
 import {
   CV,
   ImageAndre,
@@ -89,71 +88,69 @@ export default function MainPage() {
 
           <div className="content-container">
             <div className="flex flex-1 lg:flex-row flex-col items-center mb-12">
-              <Fade left>
-                <div className="flex-1">
-                  <h1 className="mb-3 flex flex-row">
-                    <span ref={typedElement} /> 👋,
-                  </h1>
-                  <h1 className="mb-6">
-                    I'm <span className="text-primary">Andre Irawan</span>
-                  </h1>
+              <div className="flex-1">
+                <h1 className="mb-3 flex flex-row">
+                  <span ref={typedElement} /> 👋,
+                </h1>
+                <h1 className="mb-6">
+                  I'm <span className="text-primary">Andre Irawan</span>
+                </h1>
 
-                  <div className="flex flex-row items-center mb-6">
-                    <h4 className="mr-1">Software Engineer at Traveloka</h4>
+                <div className="flex flex-row items-center mb-6">
+                  <h4 className="mr-1">Software Engineer at Traveloka</h4>
 
-                    <img className="w-9 h-9" src={LogoTraveloka} alt="" />
-                  </div>
-
-                  <p className="mb-6">
-                    I have experiences in creating and designing software. I
-                    take into account both sides of the project, users, and
-                    business to meet the needs of both. Applying analytical
-                    thinking, user research, and evaluation of the best method
-                    and solution, resulting in functional UI designs and 100%
-                    sure of its implementation, this thanks to the experience in
-                    development acquired in all these years.
-                  </p>
-
-                  <button
-                    onClick={() => {
-                      window.open(CV);
-                    }}
-                    className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6 mr-3"
-                  >
-                    {`Download my resume 📝`}
-                  </button>
-
-                  <button
-                    className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6"
-                    onClick={() => scrollTo("myProjects")}
-                  >
-                    {`See my projects -->`}
-                  </button>
-
-                  <div className="flex flex-row items-center">
-                    <SocialIcon
-                      className="mr-3"
-                      style={{
-                        zIndex: 0,
-                      }}
-                      url="https://www.linkedin.com/in/andre-irawan-baa512168/"
-                    />
-                    <SocialIcon
-                      className="mr-3"
-                      style={{
-                        zIndex: 0,
-                      }}
-                      url="mailto: andreirawan97@gmail.com"
-                    />
-                    <SocialIcon
-                      style={{
-                        zIndex: 0,
-                      }}
-                      url="https://www.github.com/andreirawan97"
-                    />
-                  </div>
+                  <img className="w-9 h-9" src={LogoTraveloka} alt="" />
                 </div>
-              </Fade>
+
+                <p className="mb-6">
+                  I have experiences in creating and designing software. I take
+                  into account both sides of the project, users, and business to
+                  meet the needs of both. Applying analytical thinking, user
+                  research, and evaluation of the best method and solution,
+                  resulting in functional UI designs and 100% sure of its
+                  implementation, this thanks to the experience in development
+                  acquired in all these years.
+                </p>
+
+                <button
+                  onClick={() => {
+                    window.open(CV);
+                  }}
+                  className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6 mr-3"
+                >
+                  {`Download my resume 📝`}
+                </button>
+
+                <button
+                  className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6"
+                  onClick={() => scrollTo("myProjects")}
+                >
+                  {`See my projects -->`}
+                </button>
+
+                <div className="flex flex-row items-center">
+                  <SocialIcon
+                    className="mr-3"
+                    style={{
+                      zIndex: 0,
+                    }}
+                    url="https://www.linkedin.com/in/andre-irawan-baa512168/"
+                  />
+                  <SocialIcon
+                    className="mr-3"
+                    style={{
+                      zIndex: 0,
+                    }}
+                    url="mailto: andreirawan97@gmail.com"
+                  />
+                  <SocialIcon
+                    style={{
+                      zIndex: 0,
+                    }}
+                    url="https://www.github.com/andreirawan97"
+                  />
+                </div>
+              </div>
 
               <div
                 className="flex flex-1 justify-center lg:justify-end"

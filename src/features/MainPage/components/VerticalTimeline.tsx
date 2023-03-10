@@ -1,5 +1,3 @@
-import Fade from "react-reveal/Fade";
-
 import { openLink } from "../../../helpers/util";
 
 export type TimelineData = {
@@ -51,47 +49,45 @@ export default function VerticalTimeline(props: Props) {
               )}
             </div>
 
-            <Fade>
-              <div className="flex flex-col ml-3 pb-4">
-                {notSameWithPrevOrganization && (
-                  <div className="flex">
-                    <div className="p-1 bg-primary-shade rounded-xl px-3 mb-1">
-                      <p className="text-primary text-sm font-bold">
-                        {item.organizationName}
-                      </p>
-                    </div>
+            <div className="flex flex-col ml-3 pb-4">
+              {notSameWithPrevOrganization && (
+                <div className="flex">
+                  <div className="p-1 bg-primary-shade rounded-xl px-3 mb-1">
+                    <p className="text-primary text-sm font-bold">
+                      {item.organizationName}
+                    </p>
                   </div>
-                )}
-
-                <p
-                  className="font-bold"
-                  style={
-                    !notSameWithPrevOrganization ? { marginTop: -4 } : undefined
-                  }
-                >
-                  {item.title}
-                </p>
-                {item.image && (
-                  <img
-                    className="sm:max-w-xs my-3 rounded max-h-36 w-max"
-                    src={item.image}
-                    alt=""
-                  />
-                )}
-                <span>📅 {item.date}</span>
-                <span>{item.description}</span>
-                <div>
-                  {item.link && (
-                    <button
-                      className="text-primary"
-                      onClick={() => openLink(item.link ?? "")}
-                    >
-                      View more
-                    </button>
-                  )}
                 </div>
+              )}
+
+              <p
+                className="font-bold"
+                style={
+                  !notSameWithPrevOrganization ? { marginTop: -4 } : undefined
+                }
+              >
+                {item.title}
+              </p>
+              {item.image && (
+                <img
+                  className="sm:max-w-xs my-3 rounded max-h-36 w-max"
+                  src={item.image}
+                  alt=""
+                />
+              )}
+              <span>📅 {item.date}</span>
+              <span>{item.description}</span>
+              <div>
+                {item.link && (
+                  <button
+                    className="text-primary"
+                    onClick={() => openLink(item.link ?? "")}
+                  >
+                    View more
+                  </button>
+                )}
               </div>
-            </Fade>
+            </div>
           </div>
         );
       })}

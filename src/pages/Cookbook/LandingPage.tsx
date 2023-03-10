@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
-import { ImageLandingCookbook } from "../../assets/cookbook";
+import { ImageLandingCookbook } from "../../../assets/cookbook";
 import { Button } from "../../features/Cookbook/core-ui";
 
 import { LandingAnimationData } from "../../features/Cookbook/lottie-files";

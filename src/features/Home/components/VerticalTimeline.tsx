@@ -1,3 +1,4 @@
+import Image, { StaticImageData } from "next/image";
 import { openLink } from "../../../helpers/util";
 
 export type TimelineData = {
@@ -6,7 +7,7 @@ export type TimelineData = {
   description: string;
   date: string;
   organizationLogo?: string;
-  image?: string;
+  image?: string | StaticImageData;
   link?: string;
 };
 
@@ -69,7 +70,7 @@ export default function VerticalTimeline(props: Props) {
                 {item.title}
               </p>
               {item.image && (
-                <img
+                <Image
                   className="sm:max-w-xs my-3 rounded max-h-36 w-max"
                   src={item.image}
                   alt=""

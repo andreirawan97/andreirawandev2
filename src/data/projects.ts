@@ -1,4 +1,4 @@
-import { TimelineData } from "../features/MainPage/components/VerticalTimeline";
+import { TimelineData } from "../features/Home/components/VerticalTimeline";
 
 import {
   ImageAVPN,
@@ -6,7 +6,7 @@ import {
   ImageInsights,
   ImagePruhub,
   ImageVisionUI,
-} from "../assets";
+} from "../../assets";
 
 export type PersonalProject = {
   name: string;

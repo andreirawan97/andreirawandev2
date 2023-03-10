@@ -58,3 +58,39 @@ input:focus {
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
 }
+
+h1 {
+  @apply md:text-5xl text-4xl font-bold;
+}
+
+h2 {
+  @apply md:text-4xl text-2xl font-bold;
+}
+
+h3 {
+  @apply md:text-2xl text-lg font-bold;
+}
+
+h4 {
+  @apply md:text-xl text-base font-bold;
+}
+
+p {
+  @apply text-base;
+}
+
+.text-primary {
+  color: #5158bb;
+}
+
+.bg-primary {
+  background-color: #5158bb;
+}
+
+.bg-primary-shade {
+  background-color: #cbcdeb;
+}
+
+.border-primary {
+  border-color: #5158bb;
+}

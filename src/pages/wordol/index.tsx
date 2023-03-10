@@ -2,7 +2,7 @@ import { Snackbar } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import Lottie from "lottie-react";
 
-import { WelcomeImageWordol } from "../../assets/wordol";
+import { WelcomeImageWordol } from "../../../assets/wordol";
 import { Modal } from "../../components";
 import { Keyboard, Navbar, Output } from "../../features/Wordol/components";
 import { COLORS } from "../../features/Wordol/constants/color";

@@ -4,7 +4,12 @@ import Lottie from "lottie-react";
 
 import { WelcomeImageWordol } from "../../../assets/wordol";
 import { Modal } from "../../components";
-import { Keyboard, Navbar, Output } from "../../features/Wordol/components";
+import {
+  Keyboard,
+  Navbar,
+  Output,
+  WordolHeader,
+} from "../../features/Wordol/components";
 import { COLORS } from "../../features/Wordol/constants/color";
 import { STORAGE_KEYS } from "../../features/Wordol/constants/storage";
 import {
@@ -16,6 +21,7 @@ import {
   HoorayAnimationData,
   OhNoAnimationData,
 } from "../../features/Wordol/lottie-files";
+import Image from "next/image";
 
 const CORRECT_WORD = generateRandomWord();
 
@@ -219,6 +225,8 @@ export default function MainPage() {
 
   return (
     <div className="w-full h-screen flex flex-col items-center">
+      <WordolHeader />
+
       <Navbar onDoubleClickLogo={onDoubleClickLogo} />
 
       <div
@@ -342,7 +350,7 @@ export default function MainPage() {
               one word per day! (Randomly generated each session)
             </p>
 
-            <img
+            <Image
               alt="Welcome hint"
               src={WelcomeImageWordol}
               className="w-60 mb-6"

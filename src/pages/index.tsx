@@ -6,6 +6,7 @@ import Typed, { TypedOptions } from "typed.js";
 import Image from "next/image";
 
 import {
+  HomeHeader,
   PersonalProjectList,
   SectionHeader,
   VerticalTimeline,
@@ -59,6 +60,8 @@ export default function MainPage() {
 
   return (
     <div className="flex flex-col">
+      <HomeHeader />
+
       <div className="flex flex-row md:px-24 px-6 py-3 flex-1 justify-between max-h-16">
         <button className="font-bold" onClick={openModal}>
           andreirawan.dev

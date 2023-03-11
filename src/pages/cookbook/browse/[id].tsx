@@ -1,29 +1,33 @@
 import { AccessTime, Group, MonetizationOn, Share } from "@mui/icons-material";
 import { Chip, IconButton, Tooltip } from "@mui/material";
 import { AxiosError } from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import xss from "xss";
 
-import { Alert } from "../../components";
+import { Alert } from "../../../components";
 import {
+  CookbookHeader,
   IngredientChecker,
   InstructionStep,
-} from "../../features/Cookbook/components";
+} from "../../../features/Cookbook/components";
 import {
   Disclosure,
   LazyImage,
   Loading,
-} from "../../features/Cookbook/core-ui";
-import recipeService from "../../features/Cookbook/services/recipeService";
+} from "../../../features/Cookbook/core-ui";
+import recipeService from "../../../features/Cookbook/services/recipeService";
 import {
   APIErrorResponse,
   Recipe,
-} from "../../features/Cookbook/types/globalTypes";
-import { capitalizedFirstLetter } from "../../features/Cookbook/utils/stringUtil";
+} from "../../../features/Cookbook/types/globalTypes";
+import { capitalizedFirstLetter } from "../../../features/Cookbook/utils/stringUtil";
 
 export default function DetailPage() {
-  const { id } = useParams();
+  const router = useRouter();
+  const { id } = router.query as {
+    id: string;
+  };
 
   const [isFetching, setFetching] = useState(true);
   const [recipe, setRecipe] = useState<Recipe>();
@@ -74,6 +78,8 @@ export default function DetailPage() {
         backgroundColor: "#fcfbff",
       }}
     >
+      <CookbookHeader title={recipe?.title} />
+
       <Loading loading={isFetching}>
         {recipe ? (
           <div className="flex flex-1 flex-col w-full max-w-6xl">

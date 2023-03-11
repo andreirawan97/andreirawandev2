@@ -1,21 +1,16 @@
+import Link from "next/link";
 import Lottie from "lottie-react";
-import { useNavigate } from "react-router-dom";
+
 import { ImageLandingCookbook } from "../../../assets/cookbook";
 import { Button } from "../../features/Cookbook/core-ui";
-
 import { LandingAnimationData } from "../../features/Cookbook/lottie-files";
-
-import "./index.css";
+import { CookbookHeader } from "../../features/Cookbook/components";
 
 export default function LandingPage() {
-  const navigate = useNavigate();
-
-  const onClickBrowseNow = () => {
-    navigate("/cookbook/browse");
-  };
-
   return (
     <div>
+      <CookbookHeader />
+
       <div
         className="w-full top-0 bottom-0 absolute z-10"
         style={{
@@ -67,14 +62,15 @@ export default function LandingPage() {
               Explore 100,000+ recipes
             </span>
 
-            <Button
-              label="Browse Now"
-              onClick={onClickBrowseNow}
-              labelStyle={{
-                fontWeight: "bold",
-                color: "white",
-              }}
-            />
+            <Link href="/cookbook/browse">
+              <Button
+                label="Browse Now"
+                labelStyle={{
+                  fontWeight: "bold",
+                  color: "white",
+                }}
+              />
+            </Link>
           </div>
         </div>
       </div>

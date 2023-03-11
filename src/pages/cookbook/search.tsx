@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
 import { AxiosError } from "axios";
+import { useRouter } from "next/router";
 
 import recipeService from "../../features/Cookbook/services/recipeService";
-import { RecipeList, Searchbar } from "../../features/Cookbook/components";
+import {
+  CookbookHeader,
+  RecipeList,
+  Searchbar,
+} from "../../features/Cookbook/components";
 import {
   APIErrorResponse,
   Recipe,
@@ -12,10 +16,10 @@ import { Loading } from "../../features/Cookbook/core-ui";
 import { Alert } from "../../components";
 
 export default function SearchPage() {
-  const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams({
-    q: "", // Query
-  });
+  const router = useRouter();
+  const { q } = router.query as {
+    q: string;
+  };
 
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [totalResults, setTotalResults] = useState(0);
@@ -70,23 +74,26 @@ export default function SearchPage() {
   };
 
   useEffect(() => {
-    const query = searchParams.get("q");
-
-    if (query) {
-      setSearchQuery(query);
-      getSearchResult(query);
-    } else {
-      navigate("/cookbook/browse");
+    if (q) {
+      getSearchResult(q);
     }
-  }, [navigate, searchParams]);
+  }, [q]);
 
   const onSubmitSearch = () => {
-    searchParams.set("q", searchQuery);
-    setSearchParams(searchParams);
+    if (searchQuery) {
+      router.push({
+        pathname: "/cookbook/search",
+        query: {
+          q: searchQuery,
+        },
+      });
+    } else {
+      router.push("/cookbook/browse");
+    }
   };
 
   const onClickGetMoreRecipes = () => {
-    getMoreSearchResult(searchQuery);
+    getMoreSearchResult(q);
   };
 
   const onClickRecipe = (id: number) => {
@@ -100,6 +107,8 @@ export default function SearchPage() {
         backgroundColor: "#fcfbff",
       }}
     >
+      <CookbookHeader />
+
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
         <Searchbar
           value={searchQuery}
@@ -112,7 +121,7 @@ export default function SearchPage() {
             <div className="flex flex-1 w-full flex-col">
               <div className="flex flex-col md:flex-row mb-6 md:items-center">
                 <span className="text-xl">
-                  Showing results for <b>"{searchParams.get("q")}"</b>
+                  Showing results for <b>"{q}"</b>
                 </span>
 
                 <span className="md:ml-6 text-sm text-gray-500">
@@ -131,7 +140,7 @@ export default function SearchPage() {
           ) : (
             <div className="flex flex-col md:flex-row mb-6 md:items-center">
               <span className="text-xl">
-                Showing results for <b>"{searchParams.get("q")}"</b>
+                Showing results for <b>"{q}"</b>
               </span>
 
               <span className="md:ml-6 text-sm text-gray-500">

@@ -1,20 +1,22 @@
 import { AxiosError } from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-import { RecipeList, Searchbar } from "../../features/Cookbook/components";
-import recipeService from "../../features/Cookbook/services/recipeService";
+import {
+  CookbookHeader,
+  RecipeList,
+  Searchbar,
+} from "../../../features/Cookbook/components";
+import recipeService from "../../../features/Cookbook/services/recipeService";
 import {
   APIErrorResponse,
   Recipe,
-} from "../../features/Cookbook/types/globalTypes";
-import { Loading } from "../../features/Cookbook/core-ui";
-import { Alert } from "../../components";
-
-import "./index.css";
+} from "../../../features/Cookbook/types/globalTypes";
+import { Loading } from "../../../features/Cookbook/core-ui";
+import { Alert } from "../../../components";
 
 export default function BrowsePage() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -70,7 +72,7 @@ export default function BrowsePage() {
 
   const onSubmitSearch = () => {
     if (searchQuery) {
-      navigate(`/cookbook/search?q=${searchQuery}`);
+      router.push(`/cookbook/search?q=${searchQuery}`);
     }
   };
 
@@ -89,6 +91,8 @@ export default function BrowsePage() {
         backgroundColor: "#fcfbff",
       }}
     >
+      <CookbookHeader />
+
       <span
         className="font-bold md:text-4xl text-2xl text-center mb-6"
         style={{

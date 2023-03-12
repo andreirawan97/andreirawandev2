@@ -2,18 +2,14 @@ import { AxiosError } from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-import {
-  CookbookHeader,
-  RecipeList,
-  Searchbar,
-} from "../../../features/Cookbook/components";
+import { RecipeList, Searchbar } from "../../../features/Cookbook/components";
 import recipeService from "../../../features/Cookbook/services/recipeService";
 import {
   APIErrorResponse,
   Recipe,
 } from "../../../features/Cookbook/types/globalTypes";
 import { Loading } from "../../../features/Cookbook/core-ui";
-import { Alert } from "../../../components";
+import { Alert, Helmet } from "../../../components";
 
 export default function BrowsePage() {
   const router = useRouter();
@@ -91,7 +87,7 @@ export default function BrowsePage() {
         backgroundColor: "#fcfbff",
       }}
     >
-      <CookbookHeader />
+      <Helmet preset="cookbook" />
 
       <span
         className="font-bold md:text-4xl text-2xl text-center mb-6"

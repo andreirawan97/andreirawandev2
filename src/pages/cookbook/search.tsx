@@ -3,17 +3,13 @@ import { AxiosError } from "axios";
 import { useRouter } from "next/router";
 
 import recipeService from "../../features/Cookbook/services/recipeService";
-import {
-  CookbookHeader,
-  RecipeList,
-  Searchbar,
-} from "../../features/Cookbook/components";
+import { RecipeList, Searchbar } from "../../features/Cookbook/components";
 import {
   APIErrorResponse,
   Recipe,
 } from "../../features/Cookbook/types/globalTypes";
 import { Loading } from "../../features/Cookbook/core-ui";
-import { Alert } from "../../components";
+import { Alert, Helmet } from "../../components";
 
 export default function SearchPage() {
   const router = useRouter();
@@ -107,7 +103,7 @@ export default function SearchPage() {
         backgroundColor: "#fcfbff",
       }}
     >
-      <CookbookHeader />
+      <Helmet preset="cookbook" />
 
       <div className="flex flex-1 flex-col mx-3 w-full max-w-4xl items-center mb-3">
         <Searchbar

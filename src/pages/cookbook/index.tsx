@@ -4,12 +4,12 @@ import Lottie from "lottie-react";
 import { ImageLandingCookbook } from "../../../assets/cookbook";
 import { Button } from "../../features/Cookbook/core-ui";
 import { LandingAnimationData } from "../../features/Cookbook/lottie-files";
-import { CookbookHeader } from "../../features/Cookbook/components";
+import { Helmet } from "../../components";
 
 export default function LandingPage() {
   return (
     <div>
-      <CookbookHeader />
+      <Helmet preset="cookbook" />
 
       <div
         className="w-full top-0 bottom-0 absolute z-10"

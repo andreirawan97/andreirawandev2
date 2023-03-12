@@ -3,13 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import Lottie from "lottie-react";
 
 import { WelcomeImageWordol } from "../../../assets/wordol";
-import { Modal } from "../../components";
-import {
-  Keyboard,
-  Navbar,
-  Output,
-  WordolHeader,
-} from "../../features/Wordol/components";
+import { Helmet, Modal } from "../../components";
+import { Keyboard, Navbar, Output } from "../../features/Wordol/components";
 import { COLORS } from "../../features/Wordol/constants/color";
 import { STORAGE_KEYS } from "../../features/Wordol/constants/storage";
 import {
@@ -225,7 +220,7 @@ export default function MainPage() {
 
   return (
     <div className="w-full h-screen flex flex-col items-center">
-      <WordolHeader />
+      <Helmet preset="wordol" />
 
       <Navbar onDoubleClickLogo={onDoubleClickLogo} />
 

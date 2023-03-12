@@ -6,7 +6,6 @@ import Typed, { TypedOptions } from "typed.js";
 import Image from "next/image";
 
 import {
-  HomeHeader,
   PersonalProjectList,
   SectionHeader,
   VerticalTimeline,
@@ -14,7 +13,7 @@ import {
 import { organizationExperiences } from "../data/organizationExperiences";
 import { personalProjects, works } from "../data/projects";
 import { openLink, scrollTo } from "../helpers/util";
-import { Modal } from "../components";
+import { Helmet, Modal } from "../components";
 import { hello } from "../features/Home/constants/hello";
 import {
   ImageAndre,
@@ -60,7 +59,7 @@ export default function MainPage() {
 
   return (
     <div className="flex flex-col">
-      <HomeHeader />
+      <Helmet preset="home" />
 
       <div className="flex flex-row md:px-24 px-6 py-3 flex-1 justify-between max-h-16">
         <button className="font-bold" onClick={openModal}>
@@ -346,7 +345,7 @@ export default function MainPage() {
             <span>
               This web is forged 🛠️ by:{" "}
               <span className="font-bold">
-                Typescript, React, Tailwind, and Headless UI
+                Next JS, Typescript, React, Tailwind, and Headless UI
               </span>
             </span>
           </div>

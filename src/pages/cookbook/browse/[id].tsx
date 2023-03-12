@@ -5,9 +5,8 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import xss from "xss";
 
-import { Alert } from "../../../components";
+import { Alert, Helmet } from "../../../components";
 import {
-  CookbookHeader,
   IngredientChecker,
   InstructionStep,
 } from "../../../features/Cookbook/components";
@@ -78,7 +77,7 @@ export default function DetailPage() {
         backgroundColor: "#fcfbff",
       }}
     >
-      <CookbookHeader title={recipe?.title} />
+      <Helmet preset="cookbook" title={recipe?.title} />
 
       <Loading loading={isFetching}>
         {recipe ? (

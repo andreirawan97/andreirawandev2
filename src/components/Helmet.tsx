@@ -12,7 +12,7 @@ export default function Helmet(props: Props) {
     if (preset === "home") {
       return (
         <Head>
-          <title>Hello</title>
+          <title>Hello!</title>
 
           <meta name="title" content="andreirawan.dev" key="title" />
           <meta

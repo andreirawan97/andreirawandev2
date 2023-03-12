@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { COLORS } from "../features/Cookbook/constants/colors";
 
 import "@/styles/globals.css";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   const theme = createTheme({
@@ -15,8 +16,13 @@ export default function App({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }

@@ -90,7 +90,7 @@ export default function Helmet(props: Props) {
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://andreirawan.dev/cookbook" />
-          <meta property="og:title" content="Hello!" />
+          <meta property="og:title" content="Cookbook" />
           <meta
             property="og:description"
             content="Cookbook is a free website to browse recipes."

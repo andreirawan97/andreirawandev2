@@ -1,9 +1,0 @@
-.content-container {
-  @apply md:px-24 px-6 py-3 flex flex-1 flex-col;
-}
-
-.sticky-header-glass {
-  background: rgba(255, 255, 255, 0.64);
-  backdrop-filter: blur(11.3px);
-  -webkit-backdrop-filter: blur(11.3px);
-}

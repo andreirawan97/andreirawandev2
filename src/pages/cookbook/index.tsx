@@ -14,7 +14,7 @@ export default function LandingPage() {
       <div
         className="w-full top-0 bottom-0 absolute z-10"
         style={{
-          backgroundImage: `url(${ImageLandingCookbook})`,
+          backgroundImage: `url(${ImageLandingCookbook.src})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

@@ -82,24 +82,24 @@ export default function Helmet(props: Props) {
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="%PUBLIC_URL%/cookbook/apple-touch-icon.png"
+            href="/cookbook/apple-touch-icon.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="%PUBLIC_URL%/cookbook/favicon-32x32.png"
+            href="/cookbook/favicon-32x32.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="%PUBLIC_URL%/cookbook/favicon-16x16.png"
+            href="/cookbook/favicon-16x16.png"
           />
-          <link rel="manifest" href="%PUBLIC_URL%/cookbook/manifest.json" />
+          <link rel="manifest" href="/cookbook/manifest.json" />
           <link
             rel="mask-icon"
-            href="%PUBLIC_URL%/cookbook/safari-pinned-tab.svg"
+            href="/cookbook/safari-pinned-tab.svg"
             color="#5bbad5"
           />
           <meta name="msapplication-TileColor" content="#da532c" />
@@ -116,6 +116,32 @@ export default function Helmet(props: Props) {
             content="Wordol is an unlimited Wordle-like game."
             key="description"
           />
+
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/wordol/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/wordol/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/wordol/favicon-16x16.png"
+          />
+          <link rel="manifest" href="/wordol/site.webmanifest" />
+          <link
+            rel="mask-icon"
+            href="/wordol/safari-pinned-tab.svg"
+            color="#5bbad5"
+          />
+          <meta name="msapplication-TileColor" content="#000000" />
+          <meta name="theme-color" content="#ffffff" />
         </Head>
       );
     } else {

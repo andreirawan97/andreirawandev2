@@ -7,3 +7,9 @@ export const scrollTo = (elementId: string) => {
     behavior: "smooth",
   });
 };
+
+export const getBaseURL = () => {
+  return process.env.REACT_APP_ENV === "development"
+    ? "localhost:3000"
+    : "https://andreirawan.dev/";
+};

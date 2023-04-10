@@ -7,6 +7,7 @@ import {
   ImagePruhub,
   ImageVisionUI,
 } from "../../assets";
+import { getBaseURL } from "@/helpers/util";
 
 export type PersonalProject = {
   name: string;
@@ -37,14 +38,14 @@ export const personalProjects: Array<PersonalProject> = [
     name: "Cookbook",
     description: "A simple website to find recipe.",
     usedTechnologies: "Typescript, React, Lottie, Axios",
-    projectLink: "https://andreirawan.dev/cookbook",
+    projectLink: `${getBaseURL()}/cookbook`,
     isNew: true,
   },
   {
     name: "Wordol",
     description: "A wordle-like website.",
     usedTechnologies: "Typescript, React, Lottie",
-    projectLink: "https://andreirawan.dev/wordol",
+    projectLink: `${getBaseURL()}/wordol`,
     isNew: true,
   },
 ];

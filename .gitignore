@@ -39,4 +39,5 @@ next-env.d.ts
 .netlify
 
 # Custom
+.env.local
 .env

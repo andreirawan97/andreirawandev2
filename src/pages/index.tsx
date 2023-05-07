@@ -113,14 +113,12 @@ export default function MainPage() {
                 acquired in all these years.
               </p>
 
-              <button
-                onClick={() => {
-                  // window.open(CV);
-                }}
+              <a
+                href="cv.pdf"
                 className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6 mr-3"
               >
                 {`Download my resume 📝`}
-              </button>
+              </a>
 
               <button
                 className="bg-primary text-white px-3 py-2 shadow rounded-lg text-sm mb-6"

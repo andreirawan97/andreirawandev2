@@ -100,7 +100,8 @@ export const works: Array<TimelineData> = [
   {
     title: "Traveloka Career",
     organizationName: "Traveloka",
-    description: "Contributed in enhancement for existing career site.",
+    description:
+      "Contributed in the enhancement and supervising the existing career site.",
     date: "May 2022 - Aug 2022",
     link: "https://traveloka.com/careers",
   },

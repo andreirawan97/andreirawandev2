@@ -1,6 +1,7 @@
 import { Snackbar } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import Lottie from "lottie-react";
+import Image from "next/image";
 
 import { WelcomeImageWordol } from "../../../assets/wordol";
 import { Helmet, Modal } from "../../components";
@@ -16,7 +17,6 @@ import {
   HoorayAnimationData,
   OhNoAnimationData,
 } from "../../features/Wordol/lottie-files";
-import Image from "next/image";
 
 const CORRECT_WORD = generateRandomWord();
 

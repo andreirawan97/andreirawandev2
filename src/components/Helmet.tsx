@@ -14,16 +14,20 @@ export default function Helmet(props: Props) {
         <Head>
           <title>Hello!</title>
 
-          <meta name="title" content="andreirawan.dev" key="title" />
+          <meta
+            name="title"
+            content="Andre Irawan | Frontend Engineer"
+            key="title"
+          />
           <meta
             name="description"
-            content="Welcome to Andre's web portfolio site."
+            content="Portfolio of Andre Irawan, Frontend Engineer at Traveloka."
             key="description"
           />
 
           <meta
             name="keywords"
-            content="Andre Irawan Dev, Andre Irawan, andreirawan dev, web developer"
+            content="Frontend Engineer, React, TypeScript, Traveloka, Andre Irawan Dev, Andre Irawan, andreirawan dev, web developer"
           />
           <meta name="author" content="Andre Irawan" />
 

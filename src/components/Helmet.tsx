@@ -57,7 +57,7 @@ export default function Helmet(props: Props) {
           <meta
             name="image"
             property="og:image"
-            content="https://i.imgur.com/2rqVQtl.png"
+            content="https://i.imgur.com/Tssigc5.png"
           />
 
           {/* Twitter */}
@@ -70,7 +70,7 @@ export default function Helmet(props: Props) {
           />
           <meta
             property="twitter:image"
-            content="https://i.imgur.com/2rqVQtl.png"
+            content="https://i.imgur.com/Tssigc5.png"
           />
         </Head>
       );

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function AboutMe() {
   return (
-    <section className="bg-[#1D1D1D] py-20">
+    <section className="bg-[#1D1D1D] pt-20 pb-0 md:py-20">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -11,8 +11,8 @@ export default function AboutMe() {
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto relative"
         >
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-700"></div>
-          <blockquote className="text-lg md:text-xl italic font-light text-gray-300 pl-8">
+          <div className="absolute left-4 md:left-0 top-0 bottom-0 w-1 bg-gray-700"></div>
+          <blockquote className="text-lg md:text-xl italic font-light text-gray-300 px-8 md:pl-8 md:pr-0 ">
             I am a Software Engineer with over 5 years of experience in Frontend
             Engineering with a thorough knowledge of UI/UX principles and
             responsive design. Proven track record of delivering high-quality

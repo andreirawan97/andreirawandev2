@@ -51,7 +51,7 @@ function ExperienceCard({ experience, index }: Props) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="bg-[#2A2A2A] p-6 rounded-lg shadow-lg ml-16 relative"
+      className="bg-[#2A2A2A] p-6 rounded-lg shadow-lg md:ml-16 ml-0 relative"
     >
       <div className="absolute left-0 top-1/2 transform -translate-x-[2.25rem] -translate-y-1/2 w-4 h-4 bg-gray-700 rounded-full border-4 border-[#1D1D1D]"></div>
       <div className="flex items-center justify-between mb-4">
@@ -94,18 +94,19 @@ function ExperienceCard({ experience, index }: Props) {
 export default function Experience() {
   return (
     <section id="works" className="min-h-screen bg-[#1D1D1D] py-20">
-      <div className="container mx-auto">
+      <div className="container px-4">
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-16 text-[#d9d9d9]"
+          className="text-3xl md:text-4xl font-bold mb-8 md:mb-16 text-[#d9d9d9]"
         >
           Work Experience
         </motion.h2>
 
-        <div className="relative space-y-12">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-700"></div>
+        <div className="relative space-y-12 overflow-hidden">
+          <div className="hidden md:flex absolute left-2 md:left-8 top-0 bottom-0 w-0.5 bg-gray-700"></div>
+
           {experiences.map((exp, index) => (
             <ExperienceCard key={exp.company} experience={exp} index={index} />
           ))}

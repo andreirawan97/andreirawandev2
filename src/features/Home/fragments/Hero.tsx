@@ -82,10 +82,10 @@ export default function Hero() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex justify-center md:justify-end md:mr-8 mr-0"
+            className="flex justify-center md:justify-end md:mr-12 mr-0"
           >
             <motion.div
-              className="relative w-40 h-40 md:w-52 md:h-52"
+              className="relative w-40 h-40 md:w-52 md:h-52 mb-4 md:mb-0"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

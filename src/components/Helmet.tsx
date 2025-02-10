@@ -12,7 +12,7 @@ export default function Helmet(props: Props) {
     if (preset === "home") {
       return (
         <Head>
-          <title>Hello!</title>
+          <title>Andre Irawan | Frontend Engineer</title>
 
           <meta
             name="title"
@@ -66,7 +66,7 @@ export default function Helmet(props: Props) {
           <meta property="twitter:title" content="Hello!" />
           <meta
             property="twitter:description"
-            content="Welcome to Andre's web portfolio site."
+            content="Portfolio of Andre Irawan, Frontend Engineer at Traveloka."
           />
           <meta
             property="twitter:image"

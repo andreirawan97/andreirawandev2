@@ -10,6 +10,7 @@ import Separator from "@/features/Home/components/Separator";
 import Navigation from "@/features/Home/fragments/Navigation";
 
 import "@/styles/Home/Home.module.css";
+import Collaboration from "@/features/Home/fragments/Collaboration";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function Home() {
       <Separator />
       <Projects />
       <Experience />
+      <Collaboration />
     </main>
   );
 }

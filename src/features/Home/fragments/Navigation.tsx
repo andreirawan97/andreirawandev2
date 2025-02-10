@@ -38,7 +38,7 @@ export default function Navigation() {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        atTop ? "bg-transparent" : "bg-[#1D1D1D]/80 backdrop-blur-sm"
+        atTop ? "bg-transparent" : "bg-[#1D1D1D]/80 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">

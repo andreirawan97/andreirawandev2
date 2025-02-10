@@ -9,28 +9,28 @@ const projects = [
       "A simple PokeDex application where you can view and catch Pokémon.",
     image: "/assets/pokedex.png?height=400&width=600",
     technologies: ["TypeScript", "React", "GraphQL"],
-    link: "#",
+    link: "https://pokedex-xyz.netlify.app/",
   },
   {
     title: "Fluid React Native",
     description: "A simple wrapper to animate your React Native component.",
     image: "/assets/fluid.png?height=400&width=600",
     technologies: ["TypeScript", "React Native"],
-    link: "#",
+    link: "https://github.com/andreirawan97/FluidReactNative",
   },
   {
     title: "Cookbook",
     description: "A simple website to find recipes.",
     image: "/assets/cookbook.png?height=400&width=600",
     technologies: ["TypeScript", "React", "Lottie", "Axios"],
-    link: "#",
+    link: "/cookbook",
   },
   {
     title: "Wordol",
     description: "A wordle-like website.",
     image: "/assets/wordol.png?height=400&width=600",
     technologies: ["TypeScript", "React", "Lottie"],
-    link: "#",
+    link: "/wordol",
   },
 ];
 

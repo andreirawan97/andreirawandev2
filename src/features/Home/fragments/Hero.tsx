@@ -22,10 +22,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center bg-[#1D1D1D]"
-      style={{
-        minHeight: "100dvh",
-      }}
+      className="relative min-h-screen flex items-center justify-center bg-[#1D1D1D]"
     >
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-50"></div>

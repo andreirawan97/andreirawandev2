@@ -124,13 +124,22 @@ export default function Hero() {
             >
               Andre Irawan
             </motion.h1>
+
             <motion.h2
-              className="text-xl md:text-2xl text-gray-300 mb-6"
+              className="flex flex-row items-center text-xl md:text-2xl text-gray-300 mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
               Frontend Engineer at Traveloka
+              <div className="relative w-10 h-10">
+                <Image
+                  src={"/assets/traveloka-logo.png"}
+                  alt={`Traveloka logo`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </motion.h2>
 
             <motion.div

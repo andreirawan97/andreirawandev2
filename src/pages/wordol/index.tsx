@@ -219,7 +219,7 @@ export default function MainPage() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col items-center">
+    <div className="w-full h-screen flex flex-col items-center bg-white">
       <Helmet preset="wordol" />
 
       <Navbar onDoubleClickLogo={onDoubleClickLogo} />

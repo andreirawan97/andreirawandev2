@@ -23,7 +23,7 @@ const experiences = [
     period: "January 2019 - September 2021",
     achievements: [
       "Developed and maintained multiple high-performance mobile applications using React Native, resulting in a 4+ star rating on both App Store and Google Play.",
-      "Implemented UI/UX designs and animations, enhancing user engagement and increasing daily active users by 40%.",
+      "Implemented UI/UX designs and animations and enhancing user engagement.",
       "Collaborated with cross-functional teams to deliver features on time and within scope, contributing to a 100% on-time project delivery rate.",
       "Implemented OTA update feature.",
       "Mentored junior developers and conducting code reviews.",

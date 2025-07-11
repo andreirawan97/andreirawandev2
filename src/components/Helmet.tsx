@@ -12,22 +12,22 @@ export default function Helmet(props: Props) {
     if (preset === "home") {
       return (
         <Head>
-          <title>Andre Irawan | Frontend Engineer</title>
+          <title>Andre Irawan | Senior Frontend Engineer</title>
 
           <meta
             name="title"
-            content="Andre Irawan | Frontend Engineer"
+            content="Andre Irawan | Senior Frontend Engineer"
             key="title"
           />
           <meta
             name="description"
-            content="Portfolio of Andre Irawan, Frontend Engineer at Traveloka."
+            content="Portfolio of Andre Irawan, Seniort Frontend Engineer at Veyor."
             key="description"
           />
 
           <meta
             name="keywords"
-            content="Frontend Engineer, React, TypeScript, Traveloka, Andre Irawan Dev, Andre Irawan, andreirawan dev, web developer"
+            content="Senior Frontend Engineer, React, TypeScript, Veyor, Andre Irawan Dev, Andre Irawan, andreirawan dev, web developer"
           />
           <meta name="author" content="Andre Irawan" />
 
@@ -66,7 +66,7 @@ export default function Helmet(props: Props) {
           <meta property="twitter:title" content="Hello!" />
           <meta
             property="twitter:description"
-            content="Portfolio of Andre Irawan, Frontend Engineer at Traveloka."
+            content="Portfolio of Andre Irawan, Senior Frontend Engineer at Veyor."
           />
           <meta
             property="twitter:image"

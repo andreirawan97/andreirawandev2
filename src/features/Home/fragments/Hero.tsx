@@ -131,11 +131,11 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
             >
-              Frontend Engineer at Traveloka
-              <div className="relative w-10 h-10">
+              Senior Frontend Engineer at Veyor
+              <div className="relative w-10 h-10 ml-4">
                 <Image
-                  src={"/assets/traveloka-logo.png"}
-                  alt={`Traveloka logo`}
+                  src={"/assets/veyor-logo.png"}
+                  alt={`Veyor logo`}
                   fill
                   className="object-contain"
                 />

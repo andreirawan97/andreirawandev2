@@ -3,10 +3,17 @@ import Image from "next/image";
 
 const experiences = [
   {
+    company: "Veyor",
+    logo: "/assets/veyor-logo.png",
+    position: "Senior Frontend Engineer",
+    period: "May 2025 - Present",
+    achievements: ["Develop features on Veyor website"],
+  },
+  {
     company: "Traveloka",
     logo: "/assets/traveloka-logo.png",
     position: "Frontend Engineer",
-    period: "September 2021 - Present",
+    period: "September 2021 - May 2025",
     achievements: [
       "Lead the transition from legacy JavaScript to TypeScript, improving maintainability and reducing runtime errors.",
       "Spearheaded the development of the Traveloka supplier portal website.",
